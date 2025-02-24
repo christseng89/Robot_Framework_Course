@@ -1,0 +1,102 @@
+==============================================================================
+Testcases                                                                     
+==============================================================================
+Testcases.Test Dropdown                                                       
+==============================================================================
+Handling Dropdown list                                                Total values are 71
+af
+pl
+sk
+ar
+ast
+az
+bg
+nan
+bn
+be
+ca
+cs
+cy
+da
+de
+et
+el
+en
+es
+eo
+eu
+fa
+fr
+gl
+ko
+hy
+hi
+hr
+id
+it
+he
+ka
+la
+lv
+lt
+hu
+mk
+arz
+ms
+min
+nl
+ja
+nb
+nn
+ce
+uz
+pt
+kk
+ro
+ru
+en
+ceb
+sl
+sr
+sh
+fi
+sv
+ta
+tt
+th
+tg
+azb
+tr
+uk
+ur
+vi
+vo
+war
+yue
+zh
+my
+| PASS |
+------------------------------------------------------------------------------
+Handling Links                                                        Total links are 327
+Total links in the section are: 12
+https://commons.wikimedia.org/
+https://www.wikivoyage.org/
+https://www.wiktionary.org/
+https://www.wikibooks.org/
+https://www.wikinews.org/
+https://www.wikidata.org/
+https://www.wikiversity.org/
+https://www.wikiquote.org/
+https://www.mediawiki.org/
+https://www.wikisource.org/
+https://species.wikimedia.org/
+https://meta.wikimedia.org/
+| PASS |
+------------------------------------------------------------------------------
+Testcases.Test Dropdown                                               | PASS |
+2 tests, 2 passed, 0 failed
+==============================================================================
+Testcases                                                             | PASS |
+2 tests, 2 passed, 0 failed
+==============================================================================
+Output:  C:\Users\way2automation\PycharmProjects\RobotFrameworkProject\pabot_results\2\output.xml

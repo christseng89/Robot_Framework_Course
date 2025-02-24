@@ -1,0 +1,16 @@
+==============================================================================
+Testcases                                                                     
+==============================================================================
+Testcases.Test Checkboxes                                                     
+==============================================================================
+Handling Dropdown list                                                Total checkboxes are 4
+| FAIL |
+Checkbox 'xpath://div[4]/input[4]' should have been selected but was not.
+------------------------------------------------------------------------------
+Testcases.Test Checkboxes                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Testcases                                                             | FAIL |
+1 test, 0 passed, 1 failed
+==============================================================================
+Output:  C:\Users\way2automation\PycharmProjects\RobotFrameworkProject\pabot_results\0\output.xml

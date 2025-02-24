@@ -1,0 +1,7 @@
+datasources:431e607b5b997acedda62fccf0a08531aa34889f
+commandlineoptions:97d170e1550eee4afc0af065b78cda302a97674c
+suitesfrom:no-suites-from-option
+file:8cfcf889696a36b15109775358a4c3d094d2c5c6
+--suite Testcases.FindNewCarsTest
+--suite Testcases.FindNewCarsTestDataDriven
+--suite Testcases.GetCarNameTest
