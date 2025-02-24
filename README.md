@@ -38,7 +38,7 @@ OR
 2. Navigate to Project: Robot_Framework → Python Interpreter
 3. Click '+' 
     - robotframework -> Install Package
-    - robotframework-seleniumlibrary -> Install Package
+    - robotframework-SeleniumLibrary -> Install Package
 4. Close -> OK
 
 ### Creating the first robot demo case
@@ -47,5 +47,5 @@ OR
 robot first_demo.robot
 ```
 
-log.xml -> Open In -> Browser -> Chrome
+report.html -> Open In -> Browser -> Chrome
 

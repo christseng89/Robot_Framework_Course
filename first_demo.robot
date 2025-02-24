@@ -5,14 +5,17 @@ Library     SeleniumLibrary
 *** Keywords ***
 
 *** Variables ***
-${URL}      https://gmail.com
+${URL}      https://www.outlook.com/
 ${BROWSER}  chrome
-${EMAIL_ID} samfire5200@gmail.com
 
 *** Test Cases ***
 
 Basic Test Case
     log     Basic Test case
+    open browser    ${URL}    ${BROWSER}
+    log title
+    sleep    3
+    close browser
 
 Second Test Case
     log     Second Test case
