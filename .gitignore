@@ -41,3 +41,8 @@ results*/
 examples/other/webdrivers/
 BDDPractice/properties.ini
 *old/
+
+log*.html
+output*.xml
+report*.html
+selenium-screenshot*.png

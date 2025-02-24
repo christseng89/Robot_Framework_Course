@@ -2,7 +2,7 @@
 Library     SeleniumLibrary
 
 
-**** Keywords ***
+*** Keywords ***
 
 
 *** Variables ***

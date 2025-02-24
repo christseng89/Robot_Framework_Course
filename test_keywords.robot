@@ -14,6 +14,6 @@ Basic Test Case
 
 
 Second Test Case
-    launching browser  http://google.com    firefox
+    launching browser  http://google.com    chrome
    # input text    id:identifierId       trainer@way2automation.com
    # click element    //*[@id="identifierNext"]/div/button/span

@@ -40,3 +40,12 @@ OR
     - robotframework -> Install Package
     - robotframework-seleniumlibrary -> Install Package
 4. Close -> OK
+
+### Creating the first robot demo case
+
+```cmd
+robot first_demo.robot
+```
+
+log.xml -> Open In -> Browser -> Chrome
+
