@@ -53,7 +53,7 @@ Login To Gmail With Verification
     Click Element    //*[@id="passwordNext"]
 
     # Check invalid password
-     ${is_password_invalid}=    get text    ${PASSWORD_ERROR_XPATH}
+    ${is_password_invalid}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${PASSWORD_ERROR_XPATH}    timeout={TIMEOUT_SHORT}
 
     Run Keyword If    ${is_password_invalid}    Run Keywords
     ...    Log    Incorrect Password! Please try again.
