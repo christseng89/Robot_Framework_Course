@@ -1,5 +1,6 @@
 *** Variables ***
 ${EMAIL_ACCOUNT}      your gmail account
 ${EMAIL_PASSWORD}     your gmail password
-${TIMEOUT_SECONDS}            20s
+${TIMEOUT_SECONDS}            10s
 ${TIMEOUT_SECONDS_SHORT}       5s
+${BROWSER_TYPE}               Firefox

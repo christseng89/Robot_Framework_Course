@@ -1,46 +1,38 @@
 *** Settings ***
-Library    SeleniumLibrary
-Library    BuiltIn
-Library    Collections
+Library     SeleniumLibrary
 Resource    config.robot  # ✅ Import credentials from an external file
 
+*** Keywords ***
+
 *** Variables ***
-${TIMEOUT}          10s  # Increased timeout
-${TIMEOUT_SHORT}    5s
+${TIMEOUT}          ${TIMEOUT_SECONDS}
+${TIMEOUT_SHORT}    ${TIMEOUT_SECONDS_SHORT}
 
-${BROWSER}          Firefox  # Changed to Firefox
-${LOGIN_URL}        https://accounts.google.com/signin
+${BROWSER}           ${BROWSER_TYPE}
+${LOGIN_URL}         https://gmail.com
 
-${EMAIL}            ${EMAIL_ACCOUNT}  # ✅ Load from config file
+${EMAIL}             ${EMAIL_ACCOUNT}  # ✅ Load from config file
 ${EMAIL_ERROR_XPATH}  //div[@class="dEOOab RxsGPe"]/div[@class="Ekjuhf Jj6Lae"]
 
-${PASSWORD}         ${EMAIL_PASSWORD}  # ✅ Load from config file
+${PASSWORD}          ${EMAIL_PASSWORD}  # ✅ Load from config file
 ${PASSWORD_ERROR_XPATH}  //span[contains(text(),"Wrong password")]  # Correct XPath for "Wrong password"
 
 ${GMAIL_LOGO_XPATH}  //*[@id="gb"]/div[2]/div[1]/div[4]/div/a  # Given XPath for Gmail Logo
 
 *** Test Cases ***
-Login To Gmail With Verification
-    # ✅ Create FirefoxOptions object
-    ${firefox_options}=    Evaluate    selenium.webdriver.FirefoxOptions()    modules=selenium.webdriver
-
-    # ✅ Add Firefox arguments for private mode and other settings
-    Call Method    ${firefox_options}    add_argument    --private  # Enable private mode
-    Call Method    ${firefox_options}    add_argument    --disable-blink-features\=AutomationControlled
-    Call Method    ${firefox_options}    add_argument    --start-maximized
-    Call Method    ${firefox_options}    add_argument    --disable-gpu
-
-    # ✅ Open Firefox with configured options
-    Open Browser    ${LOGIN_URL}    ${BROWSER}    options=${firefox_options}
+Basic Test Cases
+    Log    Basic Test Case
+    # ✅ Open Browser with configured options
+    Open Browser    ${LOGIN_URL}    ${BROWSER}
     Set Selenium Implicit Wait    ${TIMEOUT}
+    Maximize Browser Window
 
     # ✅ Enter Email and Click Next
-    Wait Until Element Is Visible    name:identifier    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    name:identifier
     Input Text    name:identifier    ${EMAIL}
-    Sleep    3s  # Add a delay to mimic human behavior
     Click Element    //*[@id="identifierNext"]
 
-    # Check invalid email address
+    # Check for invalid email address
     ${is_email_invalid}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${EMAIL_ERROR_XPATH}    timeout=${TIMEOUT_SHORT}
 
     Run Keyword If    ${is_email_invalid}    Run Keywords
@@ -49,12 +41,16 @@ Login To Gmail With Verification
     ...    Fail    Login failed due to incorrect email.
 
     # ✅ Enter Password and Click Next
-    Wait Until Element Is Visible    name:Passwd    timeout=${TIMEOUT}
+    Wait Until Element Is Visible    name:Passwd
     Input Text    name:Passwd    ${PASSWORD}
-    Sleep    3s  # Add a delay to mimic human behavior
-    Click Element    //*[@id="passwordNext"]
 
-    # Check invalid password
+    # ✅ Fix for "ElementClickInterceptedException"
+    Wait Until Element Is Visible    //*[@id="passwordNext"]    timeout=${TIMEOUT_SHORT}
+    Scroll Element Into View    //*[@id="passwordNext"]
+    Sleep    1s   # Allow UI to settle
+    Execute JavaScript    document.getElementById('passwordNext').click()
+
+    # Check for invalid password
     ${is_password_invalid}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${PASSWORD_ERROR_XPATH}    timeout=${TIMEOUT_SHORT}
 
     Run Keyword If    ${is_password_invalid}    Run Keywords
@@ -63,7 +59,7 @@ Login To Gmail With Verification
     ...    Fail    Login failed due to incorrect password.
 
     # ✅ Verification: Check for Gmail logo (20s timeout)
-    ${is_logged_in}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${GMAIL_LOGO_XPATH}    timeout=${TIMEOUT}
+    ${is_logged_in}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${GMAIL_LOGO_XPATH}    timeout=20s
 
     # ✅ Determine test result
     Run Keyword If    ${is_logged_in}    Log    Gmail login successful!

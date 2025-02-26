@@ -64,8 +64,10 @@ Set selenium implicit wait    ${TIMEOUT}
 robot -d reports first_demo.robot
 ```
 
-#### Download Selenium Webdriver Firefox
+#### Download Selenium Webdriver Firefox and Test
 https://github.com/mozilla/geckodriver/releases
 
-// Firefox is not working...
-
+```cmd
+robot -d reports first_demov2.robot
+REM Change config.robot => ${BROWSER_TYPE} = Firefox or Chrome
+```
