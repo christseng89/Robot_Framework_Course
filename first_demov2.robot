@@ -47,7 +47,7 @@ Basic Test Cases
     # ✅ Fix for "ElementClickInterceptedException"
     Wait Until Element Is Visible    //*[@id="passwordNext"]    timeout=${TIMEOUT_SHORT}
     Scroll Element Into View    //*[@id="passwordNext"]
-    Sleep    1s   # Allow UI to settle
+#    Sleep    1s   # Allow UI to settle
     Execute JavaScript    document.getElementById('passwordNext').click()
 
     # Check for invalid password
