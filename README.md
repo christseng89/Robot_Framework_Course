@@ -49,3 +49,106 @@ robot first_demo.robot
 
 report.html -> Open In -> Browser -> Chrome
 
+### Handling Sync issues
+https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Set%20Selenium%20Implicit%20Wait
+
+```note
+*** Settings ***
+Library     SeleniumLibrary
+
+*** Variables ***
+${URL}      https://www.google.com/
+${BROWSER}  Chrome
+${TIMEOUT}  10s
+
+*** Test Cases ***
+Test Case 1
+    Open Browser    ${URL}    ${BROWSER}
+    Title Should Be    Google
+    Close Browser
+```
+
+```note
+*** Settings ***
+Library     SeleniumLibrary
+
+*** Variables ***
+${URL}      https://www.google.com/
+${BROWSER}  Chrome
+${TIMEOUT}  10s
+
+*** Test Cases ***
+Test Case 1
+    Open Browser    ${URL}    ${BROWSER}
+    Title Should Be    Google
+    Close Browser
+```
+
+```note
+*** Settings ***
+Library     SeleniumLibrary
+
+*** Variables ***
+${URL}      https://www.google.com/
+${BROWSER}  Chrome
+${TIMEOUT}  10s
+
+*** Test Cases ***
+Test Case 1
+    Open Browser    ${URL}    ${BROWSER}
+    Set selenium implicit wait    10s
+    Title Should Be    Google
+    Close Browser
+```
+
+```note
+*** Settings ***
+Library     SeleniumLibrary
+
+*** Variables ***
+${URL}      https://www.google.com/
+${BROWSER}  Chrome
+${TIMEOUT}  10s
+
+*** Test Cases ***
+Test Case 1
+    Open Browser    ${URL}    ${BROWSER}
+    Set selenium implicit wait    ${TIMEOUT}
+    Title Should Be    Google
+    Close Browser
+```
+
+### Running the robot script
+```cmd
+robot first_demo.robot
+```
+
+### Creating the first robot demo case with reports
+```note
+*** Settings ***
+Library     SeleniumLibrary
+
+*** Variables ***
+${URL}      https://www.google.com/
+${BROWSER}  Chrome
+${TIMEOUT}  10s
+
+*** Test Cases ***
+Test Case 1
+    Open Browser    ${URL}    ${BROWSER}
+    Set selenium implicit wait    ${TIMEOUT}
+    Title Should Be    Google
+    Close Browser
+```
+
+```note
+...
+Open Browser    ${URL}    ${BROWSER}
+Set selenium implicit wait    ${TIMEOUT}
+...
+```
+
+```cmd
+robot -d reports first_demo.robot
+```
