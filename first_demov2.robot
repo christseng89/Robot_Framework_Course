@@ -1,7 +1,7 @@
 *** Settings ***
 Library           SeleniumLibrary
 Resource          config.robot  # Import credentials and settings
-Test Setup        Open Login Page
+Test Setup        Set Up Test Environment
 Test Teardown     Close Browser
 
 *** Variables ***
@@ -14,28 +14,42 @@ ${EMAIL_ERROR_XPATH}  //div[@class="dEOOab RxsGPe"]/div[@class="Ekjuhf Jj6Lae"]
 ${PASSWORD}           ${EMAIL_PASSWORD}
 ${PASSWORD_ERROR_XPATH}  //span[contains(text(),"Wrong password")]
 ${GMAIL_LOGO_XPATH}   //*[@id="gb"]/div[2]/div[1]/div[4]/div/a
+${options}            None  # Initialize options to None at the variable scope
 
 *** Keywords ***
-Open Login Page
-    ${options}=    Evaluate    None
+Set Browser Options
+    [Documentation]    Sets browser options based on the selected browser.
+    ${options}=    Evaluate    None    # Reset options within the keyword
     IF    '${BROWSER}'.lower() == 'chrome'
-       ${options}=    Evaluate    selenium.webdriver.ChromeOptions()    sys, selenium.webdriver
-       Call Method    ${options}    add_argument    --incognito
-       Call Method    ${options}    add_argument    --disable-blink-features\=AutomationControlled
-       Call Method    ${options}    add_argument    --start-fullscreen
-       Call Method    ${options}    add_argument    --disable-gpu
+        ${options}=    Evaluate    selenium.webdriver.ChromeOptions()    sys, selenium.webdriver
+        Call Method    ${options}    add_argument    --incognito
+        Call Method    ${options}    add_argument    --disable-blink-features\=AutomationControlled
+        Call Method    ${options}    add_argument    --start-fullscreen
+        Call Method    ${options}    add_argument    --disable-gpu
     ELSE IF    '${BROWSER}'.lower() == 'firefox'
-       ${options}=    Evaluate    selenium.webdriver.FirefoxOptions()    sys, selenium.webdriver
-       Call Method    ${options}    add_argument    --private
-       Call Method    ${options}    add_argument    --kiosk  # Opens Firefox in full-screen mode
-
+        ${options}=    Evaluate    selenium.webdriver.FirefoxOptions()    sys, selenium.webdriver
+        Call Method    ${options}    add_argument    --private
+        Call Method    ${options}    add_argument    --kiosk  # Opens Firefox in full-screen mode
     END
+    Set Test Variable    ${options}    # Make options available to other keywords
     IF    '${options}' != 'None'
-        Log    Browser options: ${options}
+        Log    Browser options set: ${options}
     END
-    Open Browser    ${LOGIN_URL}    ${BROWSER}    options=${options}
+
+Open Login Page
+    [Documentation]    Opens the Gmail login page using the previously set browser options.
+    IF    '${options}' != 'None'
+        Open Browser    ${LOGIN_URL}    ${BROWSER}    options=${options}
+    ELSE
+         Open Browser    ${LOGIN_URL}    ${BROWSER}
+    END
     Set Selenium Implicit Wait    ${TIMEOUT}
     Log    Opening Gmail Login Page
+
+Set Up Test Environment
+    [Documentation]    Sets up the test environment by configuring browser options and opening the login page.
+    Set Browser Options
+    Open Login Page
 
 Input Email
     [Arguments]  ${email}
@@ -82,6 +96,7 @@ Verify Login Successful
 *** Test Cases ***
 Gmail Login Test
     [Documentation]    Tests basic Gmail login functionality.
+    #Open Login Page # Removed this line
     Input Email
     ...    ${EMAIL}
     Verify Email Invalid
@@ -89,4 +104,3 @@ Gmail Login Test
     ...    ${PASSWORD}
     Verify Password Invalid
     Verify Login Successful
-
