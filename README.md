@@ -85,3 +85,15 @@ REM ${BROWSER}            ${browsers["${BROWSER_TYPE}"]}
 robot -d reports -v BROWSER_TYPE:1 first_demov2.robot
 robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
 ```
+
+### Keywords and Argumented Keywords
+```cmd
+robot -d reports test_keywords.robot
+robot -d reports -v browser:firefox test_keywords.robot
+robot -d reports -v browser:chrome test_keywords.robot
+REM Resource file Resource\commons.robot
+
+REM Resource file Resource\common.robot
+robot -d reports -v BROWSER_TYPE:1 first_demov2.robot
+
+```

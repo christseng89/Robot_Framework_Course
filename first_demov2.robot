@@ -2,8 +2,10 @@
 Documentation    本测试套件验证 Gmail 的基本登录功能
 Library           SeleniumLibrary
 Resource          config.robot  # Import credentials and settings
+Resource          Resources/common.robot
 Test Setup        Set Up Test Environment
-Test Teardown     Close Browser
+Test Teardown     Finish Test Case
+# Close the browser after test execution is complete in Resources/common.robot
 
 *** Variables ***
 ${TIMEOUT}            ${TIMEOUTS}[0]
@@ -39,14 +41,9 @@ Set Browser Options
     END
 
 Open Login Page
-    [Documentation]    使用先前设置的浏览器选项, 打开 Gmail 登录页面
-    IF    '${options}' != 'None'
-        Open Browser    ${LOGIN_URL}    ${BROWSER}    options=${options}
-    ELSE
-         Open Browser    ${LOGIN_URL}    ${BROWSER}
-    END
-    Set Selenium Implicit Wait    ${TIMEOUT}
-    Log    Opening Gmail Login Page ${LOGIN_URL} with ${BROWSER} browser
+    Launching Browser   ${LOGIN_URL}    ${BROWSER}    ${TIMEOUT}    ${options}
+    # From Resources/common.robot
+    Log    Opened Gmail login page
 
 Set Up Test Environment
     [Documentation]    配置浏览器选项并打开登录页面
