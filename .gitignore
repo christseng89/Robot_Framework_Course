@@ -37,6 +37,7 @@ build/
 dist/
 *.egg-info/
 reports*/
+test*/
 results*/
 examples/other/webdrivers/
 BDDPractice/properties.ini

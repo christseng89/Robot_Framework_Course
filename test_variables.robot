@@ -24,6 +24,7 @@ ${env}=    uat
 
 *** Test Cases ***
 Chrome Test Case
+    log    ${env}
     log    ${value}
     log    ${name}
     log    ${floatvalue}

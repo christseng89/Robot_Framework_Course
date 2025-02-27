@@ -1,6 +1,11 @@
 *** Variables ***
-${EMAIL_ACCOUNT}      your gmail account
-${EMAIL_PASSWORD}     your gmail password
-${TIMEOUT_SECONDS}            10s
-${TIMEOUT_SECONDS_SHORT}       5s
-${BROWSER_TYPE}               Firefox
+${EMAIL_ACCOUNT}        samfire5210@gmail.com
+${EMAIL_PASSWORD}       t1234Chris
+# List of timeouts in seconds
+@{TIMEOUTS}             6s    5s
+# Dictionary variables of email and password
+&{config}               email=youremail@gmail.com    password=yourpassword
+# Dictionary variables of browsers
+&{browsers}             1=Chrome    2=Firefox
+# Set to 1 for Chrome, 2 for Firefox (Default: Chrome)
+${BROWSER_TYPE}         1

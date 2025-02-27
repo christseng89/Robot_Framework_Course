@@ -1,24 +1,26 @@
 *** Settings ***
+Documentation    本测试套件验证 Gmail 的基本登录功能
 Library           SeleniumLibrary
 Resource          config.robot  # Import credentials and settings
 Test Setup        Set Up Test Environment
 Test Teardown     Close Browser
 
 *** Variables ***
-${TIMEOUT}            ${TIMEOUT_SECONDS}
-${TIMEOUT_SHORT}      ${TIMEOUT_SECONDS_SHORT}
-${BROWSER}            ${BROWSER_TYPE}
+${TIMEOUT}            ${TIMEOUTS}[0]
+${TIMEOUT_SHORT}      ${TIMEOUTS}[1]
+${BROWSER}            ${browsers["${BROWSER_TYPE}"]}
 ${LOGIN_URL}          https://gmail.com
-${EMAIL}              ${EMAIL_ACCOUNT}
+${EMAIL}              ${config.email}
 ${EMAIL_ERROR_XPATH}  //div[@class="dEOOab RxsGPe"]/div[@class="Ekjuhf Jj6Lae"]
-${PASSWORD}           ${EMAIL_PASSWORD}
+${PASSWORD}           ${config.password}
 ${PASSWORD_ERROR_XPATH}  //span[contains(text(),"Wrong password")]
 ${GMAIL_LOGO_XPATH}   //*[@id="gb"]/div[2]/div[1]/div[4]/div/a
 ${options}            None  # Initialize options to None at the variable scope
 
 *** Keywords ***
 Set Browser Options
-    [Documentation]    Sets browser options based on the selected browser.
+    [Documentation]    根据所选浏览器设置浏览器选项
+    log   Setting browser options for ${BROWSER}
     ${options}=    Evaluate    None    # Reset options within the keyword
     IF    '${BROWSER}'.lower() == 'chrome'
         ${options}=    Evaluate    selenium.webdriver.ChromeOptions()    sys, selenium.webdriver
@@ -37,17 +39,17 @@ Set Browser Options
     END
 
 Open Login Page
-    [Documentation]    Opens the Gmail login page using the previously set browser options.
+    [Documentation]    使用先前设置的浏览器选项, 打开 Gmail 登录页面
     IF    '${options}' != 'None'
         Open Browser    ${LOGIN_URL}    ${BROWSER}    options=${options}
     ELSE
          Open Browser    ${LOGIN_URL}    ${BROWSER}
     END
     Set Selenium Implicit Wait    ${TIMEOUT}
-    Log    Opening Gmail Login Page
+    Log    Opening Gmail Login Page ${LOGIN_URL} with ${BROWSER} browser
 
 Set Up Test Environment
-    [Documentation]    Sets up the test environment by configuring browser options and opening the login page.
+    [Documentation]    配置浏览器选项并打开登录页面
     Set Browser Options
     Open Login Page
 
@@ -95,7 +97,7 @@ Verify Login Successful
 
 *** Test Cases ***
 Gmail Login Test
-    [Documentation]    Tests basic Gmail login functionality.
+    [Documentation]    测试 Gmail 的基本登录功能
     #Open Login Page # Removed this line
     Input Email
     ...    ${EMAIL}

@@ -71,3 +71,17 @@ https://github.com/mozilla/geckodriver/releases
 robot -d reports first_demov2.robot
 REM Change config.robot => ${BROWSER_TYPE} = Firefox or Chrome
 ```
+
+### Variables and their scope
+```cmd
+robot -d tests test_variables.robot
+REM ${env}=    uat or qa
+robot -d tests -v env:qa test_variables.robot
+
+robot -d reports first_demov2.robot
+REM Change config.robot => ${BROWSER_TYPE} = 1 for Chrome or 2 for Firefox 
+REM ${BROWSER}            ${browsers["${BROWSER_TYPE}"]}
+
+robot -d reports -v BROWSER_TYPE:1 first_demov2.robot
+robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
+```
