@@ -2,9 +2,10 @@
 ${EMAIL_ACCOUNT}        samfire5210@gmail.com
 ${EMAIL_PASSWORD}       t1234Chris
 # List of timeouts in seconds
-@{TIMEOUTS}             6s    5s
+@{TIMEOUTS}             3s    5s   15s
 # Dictionary variables of email and password
 &{config}               email=youremail@gmail.com    password=yourpassword
+
 # Dictionary variables of browsers
 &{browsers}             1=Chrome    2=Firefox
 # Set to 1 for Chrome, 2 for Firefox (Default: Chrome)

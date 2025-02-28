@@ -1,12 +1,13 @@
 *** Settings ***
 Library     SeleniumLibrary
+# Variables   locators_gmail.py
 
 *** Keywords ***
 Set Browser Options
     [Documentation]    配置浏览器选项
     [Arguments]    ${browser_type}
     Log    Setting browser options for ${browser_type}
-    ${options}=    Evaluate    None    # Reset options within the keyword
+    ${options}=    Evaluate    None
     IF    '${browser_type}'.lower() == 'chrome'
         ${options}=    Evaluate    selenium.webdriver.ChromeOptions()    sys, selenium.webdriver
         Call Method    ${options}    add_argument    --incognito
@@ -34,24 +35,24 @@ Launching Browser
 
 Verify Error Element Exists
     [Documentation]    验证是否存在错误元素
-    [Arguments]    ${element_xpath}    ${error_message}    ${screenshot_filename}=screenshot.png
-    ${element_exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${element_xpath}    timeout=${TIMEOUT_SHORT}
-    IF    ${element_exists}
+    [Arguments]    ${locator}    ${error_message}    ${screenshot_filename}=error.png
+    ${exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    timeout=${TIMEOUT_SHORT}
+    IF    ${exists}
         Log    ${error_message}
         Capture Page Screenshot    ${screenshot_filename}
         Fail    ${error_message}
     END
 
 Verify Element Exists
-    [Documentation]    验证是否存在元素
-    [Arguments]    ${element_xpath}    ${error_message}    ${screenshot_filename}=screenshot.png
-    ${element_exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${element_xpath}    timeout=${TIMEOUT_LONG}
-    IF    ${element_exists}
-        Log    Login successful!
-    ELSE
+    [Documentation]    验证页面上的普通元素
+    [Arguments]    ${locator}    ${error_message}    ${screenshot_filename}=element_not_found.png
+    ${exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    timeout=${TIMEOUT_LONG}
+    IF    not ${exists}
         Log    ${error_message}
         Capture Page Screenshot    ${screenshot_filename}
         Fail    ${error_message}
+    ELSE
+        Log    Element found: ${locator}
     END
 
 Finish Test Case

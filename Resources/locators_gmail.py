@@ -1,0 +1,7 @@
+email_input = "name:identifier"
+next_button = "//*[@id='identifierNext']"
+password_input = "name:Passwd"
+password_next_button = "//*[@id='passwordNext']"
+email_error = "//div[@class='dEOOab RxsGPe']/div[@class='Ekjuhf Jj6Lae']"
+password_error = "//span[contains(text(),'Wrong password')]"
+gmail_logo = "//*[@id='gb']/div[2]/div[1]/div[4]/div/a"

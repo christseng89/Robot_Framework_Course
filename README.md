@@ -88,12 +88,23 @@ robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
 
 ### Keywords and Argumented Keywords
 ```cmd
-robot -d reports test_keywords.robot
-robot -d reports -v browser:firefox test_keywords.robot
-robot -d reports -v browser:chrome test_keywords.robot
+robot -d tests test_keywords.robot
+robot -d tests -v browser:firefox test_keywords.robot
+robot -d tests -v browser:chrome test_keywords.robot
 REM Resource file Resource\commons.robot
 
 REM Resource file Resource\common.robot
 robot -d reports -v BROWSER_TYPE:1 first_demov2.robot
+robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
+```
 
+### Automating the registration by using a Python locators file
+https://www.way2automation.com/
+https://www.way2automation.com/way2auto_jquery/index.php
+
+```cmd
+robot -d tests test_registration.robot
+
+robot -d reports -v BROWSER_TYPE:1 first_demov2.robot
+robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
 ```
