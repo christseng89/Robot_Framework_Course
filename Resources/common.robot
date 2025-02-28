@@ -17,7 +17,6 @@ Set Browser Options
     ELSE IF    '${browser_type}'.lower() == 'firefox'
         ${options}=    Evaluate    selenium.webdriver.FirefoxOptions()    sys, selenium.webdriver
         Call Method    ${options}    add_argument    --private
-        Call Method    ${options}    add_argument    --kiosk
     END
     RETURN    ${options}
 
@@ -29,6 +28,11 @@ Launching Browser
     ELSE
         Open Browser    ${url}    ${browserName}
     END
+
+    IF    "$browserName.lower() == 'firefox'"
+        Maximize Browser Window
+    END
+
     Set Selenium Implicit Wait    ${waitTime}
     Log    Opening Gmail Login Page ${url} with ${browserName} browser
     Log Title
@@ -36,23 +40,31 @@ Launching Browser
 Verify Error Element Exists
     [Documentation]    验证是否存在错误元素
     [Arguments]    ${locator}    ${error_message}    ${screenshot_filename}=error.png
-    ${exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    timeout=${TIMEOUT_SHORT}
-    IF    ${exists}
+
+    Check Element Exists    ${locator}    ${error_message}    should_exist=False    timeout=${TIMEOUT_SHORT}    screenshot_filename=${screenshot_filename}
+
+Verify Element Exists
+    [Documentation]    验证是否存在正常元素
+    [Arguments]    ${locator}    ${error_message}    ${screenshot_filename}=error.png
+
+    Check Element Exists    ${locator}    ${error_message}    should_exist=True    timeout=${TIMEOUT_LONG}    screenshot_filename=${screenshot_filename}
+
+Check Element Exists    # 通用元素检查
+    [Documentation]    通用元素检查，支持正常元素和错误元素
+    [Arguments]    ${locator}    ${error_message}    ${should_exist}=True    ${timeout}=${TIMEOUT_LONG}    ${screenshot_filename}=error.png
+
+    ${exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    timeout=${timeout}
+
+    IF    ${should_exist} == True and not ${exists}
         Log    ${error_message}
         Capture Page Screenshot    ${screenshot_filename}
         Fail    ${error_message}
-    END
-
-Verify Element Exists
-    [Documentation]    验证页面上的普通元素
-    [Arguments]    ${locator}    ${error_message}    ${screenshot_filename}=element_not_found.png
-    ${exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    timeout=${TIMEOUT_LONG}
-    IF    not ${exists}
+    ELSE IF    ${should_exist} == False and ${exists}
         Log    ${error_message}
         Capture Page Screenshot    ${screenshot_filename}
         Fail    ${error_message}
     ELSE
-        Log    Element found: ${locator}
+        Log    Element check passed: ${locator}
     END
 
 Finish Test Case

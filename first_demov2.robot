@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation    本测试套件验证 Gmail 的基本登录功能
+Documentation     测试 Gmail 登录功能 Using '${BROWSER}'
 Library           SeleniumLibrary
 Resource          config.robot
 Resource          Resources/common.robot

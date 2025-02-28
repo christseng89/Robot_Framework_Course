@@ -108,3 +108,9 @@ robot -d tests test_registration.robot
 robot -d reports -v BROWSER_TYPE:1 first_demov2.robot
 robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
 ```
+
+## xPath and CSS Selectors
+xPath: https://www.w3schools.com/xml/xpath_intro.asp
+
+//tagname[@attribute='value']
+//id[@id='username']
