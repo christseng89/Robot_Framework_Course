@@ -112,5 +112,14 @@ robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
 ## xPath and CSS Selectors
 xPath: https://www.w3schools.com/xml/xpath_intro.asp
 
+### Xpath vs CSS Part 1
+Xpath Format ...
+
 //tagname[@attribute='value']
 //id[@id='username']
+//input[@name='username']
+
+https://www.way2automation.com/way2auto_jquery/index.php => Developer Tools => Console
+$x("(//input[@name='username'])")
+$x("(//input[@name='username'])[1]")
+$x("(//input[@name='username'])[2]")
