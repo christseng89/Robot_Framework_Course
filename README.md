@@ -188,3 +188,24 @@ $x('//p[@id="first"]/following-sibling::p')[0]
 //tagName[@attribute='value']/following-sibling::tagname
 //tagName[@attribute='value']/preceding-sibling::tagname[1]
 ```
+
+### Xpath vs CSS Part 3
+- CSS Format ...
+```cmd
+$$('body > form > input[type=text]:nth-child(1)')
+
+REM Gmail
+$$('#yDmH0d > c-wiz > div > div.UXFQgc > div > div > div.AcKKx > form > span > section > div > div > div.AFTWye.vEQsqe > div > div.aCsJod.oJeWuf > div > div.Xb9hP > div'
+$$("input[id='identifierId']")
+$$("input[id='identifierId'][type='email']")
+$$("input[id^='identif']")
+$$("input[id$='fierId']")
+$$("input[id*='dentif']")
+$$('#identifierId')
+$$('input#identifierId')
+$$("input.whsOnd.zHQkBf")[0]
+
+$$("div.rFrNMe.X3mtXb.UOsO2.ToAxb.zKHdkd.sdJrJc.Tyc9J")
+
+document.querySelector("#identifierId")
+```
