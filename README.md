@@ -149,7 +149,42 @@ $x('//*[contains(@id, "fierId")]')
 $x('//*[contains(@id, "fierId")]/..')
 $x('//*[contains(@id, "fierId")]/parent::div')
 $x('//*[contains(@id, "fierNext")]')
+$x('//input[contains(@id, "fierId")]')
+
 REM Following sibling
 $x('//*[contains(@id, "fierId")]/following-sibling::input')
 
+```
+-  Following sibling: 在 XPath 中用于选择当前节点之后的同级元素（即具有相同父节点的元素）。
+   它用于选择当前元素的下一个兄弟节点。
+
+```html
+<div>
+  <p id="first">这是第一个段落。</p>
+  <p id="second">这是第二个段落。</p>
+  <p id="third">这是第三个段落。</p>
+</div>
+```
+
+```Chrome Console
+$x('//p[@id="first"]/following-sibling::p')
+   (2) [p#second, p#third]
+$x('//p[@id="first"]/following-sibling::p')[0]
+   <p id="second">这是第二个段落。</p>
+```
+
+- Xpath Format ...
+```
+//tagName[@attribute='value']
+//tagName[@attribute='value'][@attribute='value']
+//tagName[starts-with(@attribute,'value')]
+//tagName[contains(@attribute,'value')]
+
+//tagName[text()='value']
+//tagName[contains(text(),'partialvalue')]
+
+//tagName[@attribute='value']/..
+//tagName[@attribute='value']/parent::tagname
+//tagName[@attribute='value']/following-sibling::tagname
+//tagName[@attribute='value']/preceding-sibling::tagname[1]
 ```
