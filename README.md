@@ -110,16 +110,46 @@ robot -d reports -v BROWSER_TYPE:2 first_demov2.robot
 ```
 
 ## xPath and CSS Selectors
-xPath: https://www.w3schools.com/xml/xpath_intro.asp
+- xPath: https://www.w3schools.com/xml/xpath_intro.asp
 
 ### Xpath vs CSS Part 1
-Xpath Format ...
+- Xpath Format ...
 
+```cmd
 //tagname[@attribute='value']
 //id[@id='username']
 //input[@name='username']
+```
 
-https://www.way2automation.com/way2auto_jquery/index.php => Developer Tools => Console
+- Test xPath in Chrome Console
+- https://www.way2automation.com/way2auto_jquery/index.php => Developer Tools => Console
+
+```cmd
 $x("(//input[@name='username'])")
 $x("(//input[@name='username'])[1]")
 $x("(//input[@name='username'])[2]")
+```
+
+### Xpath vs CSS Part 2
+- Dynamic element
+https://www.way2automation.com/way2auto_jquery/automation-practice-site.html
+https://www.way2automation.com/way2auto_jquery/submit_button_clicked.php#load_box
+
+```cmd
+REM Starts with subxxx
+$x('//*[starts-with(@id, "sub")]')
+$x('//*[starts-with(@id, "111")]')
+$x('//*[starts-with(@id, "iden")]')[0]
+
+REM Contains xxxsubxxx
+$x('//*[contains(@id, "sub")]')
+
+REM Gmail contains
+$x('//*[contains(@id, "fierId")]')
+$x('//*[contains(@id, "fierId")]/..')
+$x('//*[contains(@id, "fierId")]/parent::div')
+$x('//*[contains(@id, "fierNext")]')
+REM Following sibling
+$x('//*[contains(@id, "fierId")]/following-sibling::input')
+
+```
