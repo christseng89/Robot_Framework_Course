@@ -195,7 +195,7 @@ $x('//p[@id="first"]/following-sibling::p')[0]
 $$('body > form > input[type=text]:nth-child(1)')
 
 REM Gmail
-$$('#yDmH0d > c-wiz > div > div.UXFQgc > div > div > div.AcKKx > form > span > section > div > div > div.AFTWye.vEQsqe > div > div.aCsJod.oJeWuf > div > div.Xb9hP > div'
+$$('#yDmH0d > c-wiz > div > div.UXFQgc > div > div > div.AcKKx > form > span > section > div > div > div.AFTWye.vEQsqe >) div > div.aCsJod.oJeWuf > div > div.Xb9hP > div'
 $$("input[id='identifierId']")
 $$("input[id='identifierId'][type='email']")
 $$("input[id^='identif']")
@@ -209,3 +209,16 @@ $$("div.rFrNMe.X3mtXb.UOsO2.ToAxb.zKHdkd.sdJrJc.Tyc9J")
 
 document.querySelector("#identifierId")
 ```
+
+## Advance Topics
+- https://www.way2automation.com/way2auto_jquery/automation-practice-site.html
+
+### Handling Tabs and Popup windows
+- Registration https://www.way2automation.com/way2auto_jquery/registration.php#load_box
+
+```cmd
+robot -d tests test_registration.robot
+
+robot -d tests test_windowHandling.robot
+``` 
+//*[@id="load_form"]/div[2]/div/p[1]/a
