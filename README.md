@@ -223,3 +223,8 @@ robot -d tests test_windowHandling.robot
 ``` 
 
 ### Conditional statements - If and Else
+```cmd
+robot -d tests test_if_else.robot
+robot -d tests -v num1:15 test_if_else.robot
+robot -d tests -v num1:8 test_if_else.robot
+```
