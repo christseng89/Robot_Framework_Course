@@ -14,10 +14,14 @@ Handling Dropdown list
     launching browser  https://www.wikipedia.org/    chrome
     maximize browser window
 
-    select from list by value   name:language    ${LANG}
+#    select from list by value   name:language    ${LANG}
 ##    select from list by index   name:language    ${LANG_INDEX}
-#    select from list by label   name:language    ${LANG_LABEL}
-#    ${LANG}=    Set Language Code    ${LANG_LABEL}
+
+    # List by Label and using ${LANG_LABEL} to get ${LANG}
+    select from list by label   name:language    ${LANG_LABEL}
+    ${selected_option}=    Get WebElement    xpath://select[@id='searchLanguage']/option[normalize-space(.)='${LANG_LABEL}']
+    ${LANG}=    Get Element Attribute    ${selected_option}    lang
+    log to console    Selected language code: ${LANG}
 
     @{elements}=    get webelements    xpath://select[@id='searchLanguage']//option
     ${count}=    get length    ${elements}
