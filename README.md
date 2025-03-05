@@ -234,3 +234,11 @@ robot -d tests -v num1:8 test_if_else.robot
 robot -d tests test_loops.robot
 
 ```
+
+### Handling Dropdown list
+- https://www.wikipedia.org/
+
+```
+robot -d tests test_dropdown.robot
+
+```
