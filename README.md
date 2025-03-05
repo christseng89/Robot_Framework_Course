@@ -241,4 +241,9 @@ robot -d tests test_loops.robot
 ```
 robot -d tests test_dropdown.robot
 
+robot -d tests -v LANG:zh test_dropdown.robot
+robot -d tests -v LANG:en test_dropdown.robot
+robot -d tests -v LANG:hi test_dropdown.robot
+robot -d tests -v LANG:ja test_dropdown.robot
+
 ```
