@@ -1,6 +1,6 @@
 *** Settings ***
 Resource    Resources/commons.robot
-Variables    Resources/locators.py
+
 Test Teardown    Ending the test
 
 *** Variables ***

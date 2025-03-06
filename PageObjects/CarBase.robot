@@ -1,7 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Variables  ../Resources/locators.py
-
+Resource    ../Resources/commons.robot
 
 *** Keywords ***
 verify car heading

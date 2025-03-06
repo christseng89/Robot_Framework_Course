@@ -1,7 +1,7 @@
 *** Settings ***
 
 Resource    Resources/commons.robot
-Variables    Resources/locators.py
+
 ### End with TearDown
 Suite Teardown    Ending the test
 

@@ -1,7 +1,7 @@
 *** Settings ***
 
 Resource    Resources/commons.robot
-Variables    Resources/locators.py
+
 
 *** Variables ***
 ${LANG}          en

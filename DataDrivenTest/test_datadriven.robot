@@ -1,8 +1,8 @@
 *** Settings ***
 
 Resource    ../Resources/commons.robot
-Variables    ../Resources/locators.py
-Library    ../Built_In/CustomLib.py
+# Variables    ../Resources/locators.py
+Library    ../CustomLibraries/CustomLib.py
 Library    DataDriver    ../Resources/testdata.xlsx    Sheet1
 
 Test Template    Handle Any Date
