@@ -2,7 +2,7 @@
 
 Resource    Resources/commons.robot
 Variables    Resources/locators.py
-#Test Teardown    Ending the test
+Test Teardown    Ending the test
 
 *** Variables ***
 
@@ -12,12 +12,18 @@ Ending the test
 
 *** Test Cases ***
 
-Handling Dropdown list
+Handling Frames
     launching browser  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get    chrome
-    select frame    xpath://*[@id="iframeResult"]
-    click button    xpath:/html/body/button
-    unselect frame
+    maximize browser window
 
+    select frame    xpath://*[@id="iframeResult"]
+    # Clicking on 'Try it' button
+    click button    xpath:/html/body/button
+    sleep    5s
+
+    unselect frame
     @{frames}=    get webelements    xpath://iframe
     ${count}=    get length    ${frames}
-    log to console    ${count}
+    log to console    \nTotal Number of Frames ${count}
+
+    sleep    5s

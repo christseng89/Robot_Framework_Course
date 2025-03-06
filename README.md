@@ -255,3 +255,11 @@ robot -d tests -v LANG:ja test_dropdown.robot
 robot -d tests test_checkboxes.robot
 
 ```
+
+### Handling Frames
+- https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get
+
+```cmd
+robot -d tests test_frames.robot
+
+```
