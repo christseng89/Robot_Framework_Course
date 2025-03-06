@@ -290,3 +290,13 @@ robot -d tests test_alerts.robot
 robot -d tests test_mouseover.robot
 
 ```
+
+### Handling Drag and Drop Offsets (Slider)
+- https://jqueryui.com/resources/demos/slider/default.html
+- https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Drag%20And%20Drop%20By%20Offset
+
+```cmd
+robot -d tests test_slider.robot
+robot -d tests -v OFFSET_X:700 test_slider.robot
+
+```

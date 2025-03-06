@@ -2,6 +2,9 @@
 Library     SeleniumLibrary
 #Library    AllureLibrary
 
+*** Variables ***
+${MOUSE_OPTION}     add_experimental_option("excludeSwitches", ["enable-logging"])
+
 *** Keywords ***
 launching browser
     [Arguments]    ${url}    ${browser}    ${options}=None

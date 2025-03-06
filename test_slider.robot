@@ -2,9 +2,11 @@
 
 Resource    Resources/commons.robot
 Variables    Resources/locators.py
-#Test Teardown    Ending the test
+Test Teardown    Ending the test
 
 *** Variables ***
+${OFFSET_X}    400
+${OFFSET_Y}    0
 
 *** Keywords ***
 Ending the test
@@ -13,5 +15,7 @@ Ending the test
 *** Test Cases ***
 
 Handling Sliders
-    launching browser  https://jqueryui.com/resources/demos/slider/default.html    chrome
-    drag and drop by offset    xpath://*[@id="slider"]/span    400    0
+    launching browser  https://jqueryui.com/resources/demos/slider/default.html    chrome   options=${MOUSE_OPTION}
+    drag and drop by offset    xpath://*[@id="slider"]/span    ${OFFSET_X}    ${OFFSET_Y}
+
+    sleep    5s
