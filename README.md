@@ -247,3 +247,11 @@ robot -d tests -v LANG:hi test_dropdown.robot
 robot -d tests -v LANG:ja test_dropdown.robot
 
 ```
+
+### Handling Checkboxes
+- http://www.tizag.com/htmlT/htmlcheckboxes.php
+
+```cmd
+robot -d tests test_checkboxes.robot
+
+```
