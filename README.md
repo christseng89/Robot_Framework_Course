@@ -263,3 +263,15 @@ robot -d tests test_checkboxes.robot
 robot -d tests test_frames.robot
 
 ```
+
+### Handling Alerts
+- https://way2automation.com/way2auto_jquery/index.php
+- https://www.way2automation.com/way2auto_jquery/automation-practice-site.html
+
+Alert Page (via Window Handling)
+- https://www.way2automation.com/way2auto_jquery/alert.php#load_box
+
+```cmd
+robot -d tests test_alerts.robot
+
+```
