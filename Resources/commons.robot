@@ -4,8 +4,14 @@ Library     SeleniumLibrary
 
 *** Keywords ***
 launching browser
-    [Arguments]    ${url}    ${browserName}
-    open browser    ${url}    ${browserName}
+    [Arguments]    ${url}    ${browser}    ${options}=None
+    IF    '${options}' != 'None'
+        open browser    ${url}    ${browser}    options=${options}
+    ELSE
+        open browser    ${url}    ${browser}
+    END
+
+    maximize browser window
     set selenium implicit wait    10 seconds
     log title
 

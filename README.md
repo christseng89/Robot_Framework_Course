@@ -19,7 +19,12 @@ venv\Scripts\activate
 2. Search for 'IntelliBot #Update' -> Install 
 3. Restart PyCharm
 
-https://robotframework.org/?tab=1#getting-started
+Robot Framework Official Documentation
+- https://robotframework.org/?tab=1#getting-started
+
+SeleniumLibrary Official Documentation
+- https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+
 ```cmd
 pip install robotframework
 robot --version
@@ -273,5 +278,15 @@ Alert Page (via Window Handling)
 
 ```cmd
 robot -d tests test_alerts.robot
+
+```
+
+## Handling Complex User Gestures
+
+### Handling MouseOver
+- https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Mouse%20Over
+
+```cmd
+robot -d tests test_mouseover.robot
 
 ```

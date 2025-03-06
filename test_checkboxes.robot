@@ -15,7 +15,7 @@ Ending the test
 
 Handling Dropdown list
     launching browser  http://www.tizag.com/htmlT/htmlcheckboxes.php    chrome
-    maximize browser window
+    # maximize browser window
 
     page should contain checkbox    xpath:/html/body/table[3]/tbody/tr[1]/td[2]/table/tbody/tr/td/div[4]/input[1]
 #    select checkbox    xpath://div[4]/input[1]

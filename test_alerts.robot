@@ -16,7 +16,7 @@ Ending the test
 
 Handling Dropdown list
     launching browser    https://way2automation.com/way2auto_jquery/index.php    chrome
-    maximize browser window
+    # maximize browser window
 
     click link    link:ENTER TO THE TESTING WEBSITE
 

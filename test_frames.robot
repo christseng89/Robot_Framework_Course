@@ -14,7 +14,7 @@ Ending the test
 
 Handling Frames
     launching browser  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get    chrome
-    maximize browser window
+    # maximize browser window
 
     select frame    xpath://*[@id="iframeResult"]
     # Clicking on 'Try it' button

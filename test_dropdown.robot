@@ -13,7 +13,7 @@ ${LANG_URL}      https://${LANG}.wikipedia.org
 
 Handling Dropdown list
     launching browser  https://www.wikipedia.org/    chrome
-    maximize browser window
+    # maximize browser window
 
     ### Method 1: Select From List By Value
     select from list by value   name:language    ${LANG}
