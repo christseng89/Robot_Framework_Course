@@ -318,3 +318,12 @@ robot -d tests test_calendar.robot
 robot -d tests test_calendar_jq.robot
 robot -d tests DataDrivenTest\test_datadriven.robot
 ```
+
+### Handling Resizable elements
+- https://jqueryui.com/resources/demos/resizable/default.html
+
+```cmd
+robot -d tests test_resizable.robot
+robot -d tests -v OFFSET_X:700 test_resizable.robot
+
+```

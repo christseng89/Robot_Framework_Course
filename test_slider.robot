@@ -15,7 +15,7 @@ Ending the test
 *** Test Cases ***
 
 Handling Sliders
-    launching browser  https://jqueryui.com/resources/demos/slider/default.html    chrome   options=${MOUSE_OPTION}
+    launching browser  https://jqueryui.com/resources/demos/slider/default.html    chrome
     drag and drop by offset    xpath://*[@id="slider"]/span    ${OFFSET_X}    ${OFFSET_Y}
 
-    sleep    5s
+    sleep    3s
