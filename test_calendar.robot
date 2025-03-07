@@ -1,6 +1,7 @@
 *** Settings ***
 Resource    Resources/commons.robot
-Library    CustomLibraries/CustomLib.py
+Library    AllureLibrary
+Library    Built_In/CustomLib.py
 
 Test Teardown    Ending the test
 

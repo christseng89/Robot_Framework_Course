@@ -36,6 +36,18 @@ python -c "import SeleniumLibrary; print(SeleniumLibrary.__version__)"
 python -c "import selenium; print(selenium.__version__)"               
    4.29.0
 
+REM Allure Library
+pip install allure-robotframework
+allure --version                
+   2.32.0
+
+pip install allure-pytest
+
+REM Data Driver - Excel
+pip install robotframework-datadriver
+pip install pandas openpyxl
+
+
 ```
 
 OR
@@ -303,6 +315,8 @@ robot -d tests -v OFFSET_X:700 test_slider.robot
 
 ### Refactor the code #1
 
-Error with CustomLibraries/CustomLib.py
-- test_calender.robot
-- test_data_driven.robot
+```cmd
+robot -d tests test_calendar.robot
+robot -d tests test_calendar_jq.robot
+robot -d tests DataDrivenTest\test_datadriven.robot
+```
