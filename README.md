@@ -352,3 +352,11 @@ robot -d tests test_right_click.robot
 robot -d tests test_javascript.robot
 
 ```
+
+### Capture Screenshots (Element and Full Page)
+https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Capture%20Element%20Screenshot
+
+```cmd
+robot -d tests test_javascript.robot
+
+```
