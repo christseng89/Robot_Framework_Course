@@ -386,3 +386,12 @@ robot -d tests test_webtables.robot
 robot -d tests test_calendar.robot
 
 ```
+
+### Format Robot Framework Test Cases
+- https://github.com/MarketSquare/robotframework-tidy?tab=readme-ov-file#installation-
+
+```cmd
+pip install -U robotframework-tidy
+robotidy test_calendar.robot
+```
+

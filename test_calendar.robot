@@ -1,23 +1,13 @@
 *** Settings ***
-Resource   Resources/commons.robot
-Library    AllureLibrary
-Library    Built_In/CustomLib.py
+Resource            Resources/commons.robot
+Library             AllureLibrary
+Library             Built_In/CustomLib.py
 
-Test Teardown    Ending the test
+Test Teardown       Ending the test
 
-*** Variables ***
-
-*** Keywords ***
-Ending the test
-    close browser
-
-Teardown
-    run keyword if test failed    Capture Screenshot
 
 *** Test Cases ***
-
 Handling Calendar
-    [Teardown]    Teardown
     launching browser    https://www.way2automation.com/way2auto_jquery/datepicker.php#load_box    chrome
     select frame    xpath=//iframe[contains(@src, 'datepicker/defult1.html')]
     click element    id:datepicker
@@ -32,3 +22,12 @@ Handling Calendar
 
     ${text}=    get value    xpath://input[@id="datepicker"]
     log to console    \nSelected Date: ${text}
+    [Teardown]    Teardown
+
+
+*** Keywords ***
+Ending the test
+    close browser
+
+Teardown
+    run keyword if test failed    Capture Screenshot

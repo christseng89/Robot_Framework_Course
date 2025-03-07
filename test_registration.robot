@@ -1,17 +1,13 @@
 *** Settings ***
-
 Resource    Resources/commons.robot
 
 
 *** Variables ***
-${URL_WAY2AUTO}    https://www.way2automation.com/way2auto_jquery/index.php
-${BROWSER}    chrome
-
-*** Keywords ***
+${URL_WAY2AUTO}     https://www.way2automation.com/way2auto_jquery/index.php
+${BROWSER}          chrome
 
 
 *** Test Cases ***
-
 Registration form test
-    Filling Registration form    ${URL_WAY2AUTO}  ${BROWSER}
+    Filling Registration form    ${URL_WAY2AUTO}    ${BROWSER}
     Finish Test Case
