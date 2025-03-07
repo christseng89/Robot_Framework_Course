@@ -360,3 +360,20 @@ https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Capture%20Elemen
 robot -d tests test_javascript.robot
 
 ```
+
+### Running the test in Headless mode
+- headlesschrome
+
+```note
+    launching browser  https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get    headlesschrome
+```
+
+## Handing Web Tables, Calendar/Date Picker and Custom Python Library
+
+### Handling WebTables
+- https://imsports.rediff.com/score/in_asa_1081672.html
+
+```cmd
+robot -d tests test_webtables.robot
+
+```

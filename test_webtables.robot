@@ -5,6 +5,7 @@ Resource    Resources/commons.robot
 Test Teardown    Ending the test
 
 *** Variables ***
+${TABLE}    //*[@id="bat-board"]
 
 *** Keywords ***
 Ending the test
@@ -15,9 +16,9 @@ Ending the test
 Handling WebTables
     launching browser  https://imsports.rediff.com/score/in_asa_1081672.html    chrome
 
-    @{rows}=    get webelements    //*[@id="bat-board"]//tr
+    @{rows}=    get webelements    ${TABLE}//tr
     ${rowCount}=    get length    ${rows}
-    @{cols}=    get webelements    //*[@id="bat-board"]//tr[1]/td
+    @{cols}=    get webelements    ${TABLE}//tr[1]/td
     ${colCount}=    get length    ${cols}
 
 
@@ -32,6 +33,8 @@ Handling WebTables
     END
 
 
-    table should contain    xpath://*[@id="bat-board"]    Suranga Lakmal
-    table row should contain    //*[@id="bat-board"]//tr    3    	b Shami
-    table column should contain    //*[@id="bat-board"]//tr[1]/td    7    133.33
+    table should contain            xpath:${TABLE}      Suranga Lakmal
+    table row should contain        ${TABLE}//tr        3    	b Shami
+    table column should contain     ${TABLE}//tr[1]/td  7       133.33
+
+    sleep    3s
