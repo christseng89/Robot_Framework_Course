@@ -377,3 +377,12 @@ robot -d tests test_javascript.robot
 robot -d tests test_webtables.robot
 
 ```
+
+### Handling Calendars - Integrating Custom Python Library
+- https://www.way2automation.com/way2auto_jquery/datepicker.php#load_box
+- Custom Python Library -> Built_In/CustomLib.py
+
+```cmd
+robot -d tests test_calendar.robot
+
+```

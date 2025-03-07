@@ -1,5 +1,5 @@
 *** Settings ***
-Resource    Resources/commons.robot
+Resource   Resources/commons.robot
 Library    AllureLibrary
 Library    Built_In/CustomLib.py
 
@@ -19,7 +19,7 @@ Teardown
 Handling Calendar
     [Teardown]    Teardown
     launching browser    https://www.way2automation.com/way2auto_jquery/datepicker.php#load_box    chrome
-    select frame    //*[@id="example-1-tab-1"]/div/iframe
+    select frame    xpath=//iframe[contains(@src, 'datepicker/defult1.html')]
     click element    id:datepicker
 
     # Debug prints
@@ -27,3 +27,8 @@ Handling Calendar
     Print Title
 
     select month    //*[@id="ui-datepicker-div"]/div/div/span[1]    January    14
+
+    sleep    3s
+
+    ${text}=    get value    xpath://input[@id="datepicker"]
+    log to console    \nSelected Date: ${text}
