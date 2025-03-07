@@ -2,7 +2,7 @@
 
 Resource    Resources/commons.robot
 
-#Test Teardown    Ending the test
+Test Teardown    Ending the test
 
 *** Variables ***
 

@@ -2,7 +2,7 @@
 
 Resource    Resources/commons.robot
 
-#Test Teardown    Ending the test
+Test Teardown    Ending the test
 
 *** Variables ***
 
@@ -33,5 +33,5 @@ Handling WebTables
 
 
     table should contain    xpath://*[@id="bat-board"]    Suranga Lakmal
-    table row should contain    //*[@id="bat-board"]//tr    3    	b Shamis
+    table row should contain    //*[@id="bat-board"]//tr    3    	b Shami
     table column should contain    //*[@id="bat-board"]//tr[1]/td    7    133.33

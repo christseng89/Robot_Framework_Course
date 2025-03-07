@@ -342,3 +342,13 @@ robot -d tests test_drag_and_drop.robot
 robot -d tests test_right_click.robot
 
 ```
+
+## JavaScipt, Screen Shots and Headless Mode
+
+### Handling JavaScript Execution
+- https://www.w3schools.com/jsref/tryit.asp?filename=tryjsref_submit_get
+
+```cmd
+robot -d tests test_javascript.robot
+
+```
