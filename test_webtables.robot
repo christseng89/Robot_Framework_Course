@@ -35,6 +35,7 @@ Handling WebTables
 
     table should contain            xpath:${TABLE}      Suranga Lakmal
     table row should contain        ${TABLE}//tr        3    	b Shami
+    table row should contain        ${TABLE}//tr        3    	30.77
     table column should contain     ${TABLE}//tr[1]/td  7       133.33
 
     sleep    3s
