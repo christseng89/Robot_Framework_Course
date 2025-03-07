@@ -327,3 +327,9 @@ robot -d tests test_resizable.robot
 robot -d tests -v OFFSET_X:700 test_resizable.robot
 
 ```
+
+### Handling Drag and Drop
+```cmd
+robot -d tests test_drag_and_drop.robot
+
+```
