@@ -41,8 +41,6 @@ pip install allure-robotframework
 allure --version                
    2.32.0
 
-pip install allure-pytest
-
 REM Data Driver - Excel
 pip install robotframework-datadriver
 pip install pandas openpyxl
