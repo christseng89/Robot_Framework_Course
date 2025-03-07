@@ -333,3 +333,12 @@ robot -d tests -v OFFSET_X:700 test_resizable.robot
 robot -d tests test_drag_and_drop.robot
 
 ```
+
+### Handling Right click and Multi mouse over elements
+- https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Open%20Context%20Menu
+- https://deluxe-menu.com/popup-mode-sample.html
+
+```cmd
+robot -d tests test_right_click.robot
+
+```
