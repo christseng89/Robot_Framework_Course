@@ -4,6 +4,7 @@ ${num1}=    12
 ${num2}=    20
 ${num3}=    9
 
+
 *** Test Cases ***
 Test If Block
     IF    "${NAME}" == "Rahul"
@@ -12,27 +13,25 @@ Test If Block
         Log To Console    Name is not Rahul
     END
 
-
 Test Else If Block
-   IF    "${NAME}" == "Rahul"
+    IF    "${NAME}" == "Rahul"
         log to console    Name is Rahul
-   ELSE IF    "${NAME}" == "Cory"
+    ELSE IF    "${NAME}" == "Cory"
         log to console    Name is Cory
-   ELSE
+    ELSE
         log to console    Name does not matches
-   END
+    END
 
 Test Number Comparison
-   IF    ${num1} == ${num2}
+    IF    ${num1} == ${num2}
         log to console    ${num1} matches ${num2}
-   ELSE IF    ${num1} < ${num2}
+    ELSE IF    ${num1} < ${num2}
         log to console    ${num1} is less than ${num2}
     ELSE
         log to console    ${num1} is greater than ${num2}
-   END
+    END
 
 Test OR Conditions
-
     IF    ${num1} < ${num2} or ${num1} < ${num3}
         log to console    ${num1} is less than ${num2} or less than ${num3}
     ELSE
@@ -40,7 +39,6 @@ Test OR Conditions
     END
 
 Test AND Conditions
-
     IF    ${num1} < ${num2} and ${num1} < ${num3}
         log to console    ${num1} is less than ${num2} and less than ${num3}
     ELSE

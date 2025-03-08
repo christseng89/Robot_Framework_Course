@@ -1,6 +1,7 @@
 *** Settings ***
 Library     SeleniumLibrary
-# Variables   locators_gmail.py
+# Variables    locators_gmail.py
+
 
 *** Keywords ***
 Set Browser Options
@@ -14,6 +15,9 @@ Set Browser Options
         Call Method    ${options}    add_argument    --disable-blink-features\=AutomationControlled
         Call Method    ${options}    add_argument    --start-maximized
         Call Method    ${options}    add_argument    --disable-gpu
+        Call Method    ${options}    add_argument    --disable-infobars
+#    Call Method    ${options}    add_argument    --disable-popup-blocking
+#    Call Method    ${options}    add_argument    --disable-extensions
     ELSE IF    '${browser_type}'.lower() == 'firefox'
         ${options}=    Evaluate    selenium.webdriver.FirefoxOptions()    sys, selenium.webdriver
         Call Method    ${options}    add_argument    --private
@@ -29,9 +33,7 @@ Launching Browser
         Open Browser    ${url}    ${browserName}
     END
 
-    IF    "$browserName.lower() == 'firefox'"
-        Maximize Browser Window
-    END
+    IF    "$browserName.lower() == 'firefox'"    Maximize Browser Window
 
     Set Selenium Implicit Wait    ${waitTime}
     Log    Opening Gmail Login Page ${url} with ${browserName} browser
@@ -41,17 +43,32 @@ Verify Error Element Exists
     [Documentation]    验证是否存在错误元素
     [Arguments]    ${locator}    ${error_message}    ${screenshot_filename}=error.png
 
-    Check Element Exists    ${locator}    ${error_message}    should_exist=False    timeout=${TIMEOUT_SHORT}    screenshot_filename=${screenshot_filename}
+    Check Element Exists
+    ...    ${locator}
+    ...    ${error_message}
+    ...    should_exist=False
+    ...    timeout=${TIMEOUT_SHORT}
+    ...    screenshot_filename=${screenshot_filename}
 
 Verify Element Exists
     [Documentation]    验证是否存在正常元素
     [Arguments]    ${locator}    ${error_message}    ${screenshot_filename}=error.png
 
-    Check Element Exists    ${locator}    ${error_message}    should_exist=True    timeout=${TIMEOUT_LONG}    screenshot_filename=${screenshot_filename}
+    Check Element Exists
+    ...    ${locator}
+    ...    ${error_message}
+    ...    should_exist=True
+    ...    timeout=${TIMEOUT_LONG}
+    ...    screenshot_filename=${screenshot_filename}
 
 Check Element Exists    # 通用元素检查
     [Documentation]    通用元素检查，支持正常元素和错误元素
-    [Arguments]    ${locator}    ${error_message}    ${should_exist}=True    ${timeout}=${TIMEOUT_LONG}    ${screenshot_filename}=error.png
+    [Arguments]
+    ...    ${locator}
+    ...    ${error_message}
+    ...    ${should_exist}=True
+    ...    ${timeout}=${TIMEOUT_LONG}
+    ...    ${screenshot_filename}=error.png
 
     ${exists}=    Run Keyword And Return Status    Wait Until Element Is Visible    ${locator}    timeout=${timeout}
 

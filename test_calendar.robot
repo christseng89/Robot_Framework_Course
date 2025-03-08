@@ -18,7 +18,7 @@ Handling Calendar
 
     select month    //*[@id="ui-datepicker-div"]/div/div/span[1]    January    14
 
-    sleep    3s
+    sleep    2s
 
     ${text}=    get value    xpath://input[@id="datepicker"]
     log to console    \nSelected Date: ${text}

@@ -358,6 +358,7 @@ https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html#Capture%20Elemen
 
 ```cmd
 robot -d tests test_javascript.robot
+robot -d tests test_javascript2.robot
 
 ```
 

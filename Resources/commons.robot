@@ -1,10 +1,12 @@
 *** Settings ***
-Library     SeleniumLibrary
-Variables    locators.py
-#Library    AllureLibrary
+Library         SeleniumLibrary
+Variables       locators.py
+# Library    AllureLibrary
+
 
 *** Variables ***
-${OPTIONS}    add_experimental_option("excludeSwitches", ["enable-logging"])
+${OPTIONS}      add_experimental_option("excludeSwitches", ["enable-logging"])
+
 
 *** Keywords ***
 launching browser
@@ -36,7 +38,7 @@ Filling Registration form
     input text    ${username}    rahularora1423
     input text    ${password}    askjdbfskjdfs
     click button    ${submitBtn}
-    sleep    5s
+    sleep    2s
 
 Finish Test Case
     log    Ending the test case

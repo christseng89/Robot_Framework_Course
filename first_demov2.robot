@@ -1,22 +1,34 @@
 *** Settings ***
-Documentation     测试 Gmail 登录功能 Using '${BROWSER}'
-Library           SeleniumLibrary
-Resource          config.robot
-Resource          Resources/common.robot
-# Store browser elements into a Python file
-Variables         Resources/locators_gmail.py
+Documentation       测试 Gmail 登录功能 Using '${BROWSER}'
 
-Test Setup        Set Up Test Environment
-Test Teardown     Finish Test Case
+Library             SeleniumLibrary
+Resource            config.robot
+Resource            Resources/common.robot
+# Store browser elements into a Python file
+Variables           Resources/locators_gmail.py
+
+Test Setup          Set Up Test Environment
+Test Teardown       Finish Test Case
+
 
 *** Variables ***
-${TIMEOUT}            ${TIMEOUTS}[0]
-${TIMEOUT_SHORT}      ${TIMEOUTS}[1]
-${TIMEOUT_LONG}       ${TIMEOUTS}[2]
-${BROWSER}            ${browsers["${BROWSER_TYPE}"]}
-${LOGIN_URL}          https://gmail.com
-${EMAIL}              ${config.email}
-${PASSWORD}           ${config.password}
+${TIMEOUT}          ${TIMEOUTS}[0]
+${TIMEOUT_SHORT}    ${TIMEOUTS}[1]
+${TIMEOUT_LONG}     ${TIMEOUTS}[2]
+${BROWSER}          ${browsers["${BROWSER_TYPE}"]}
+${LOGIN_URL}        https://gmail.com
+${EMAIL}            ${config.email}
+${PASSWORD}         ${config.password}
+
+
+*** Test Cases ***
+Gmail Login Test
+    Input Email    ${EMAIL}
+    Verify Email Invalid
+    Input Password    ${PASSWORD}
+    Verify Password Invalid
+    Verify Login Successful
+
 
 *** Keywords ***
 Open Login Page
@@ -51,11 +63,3 @@ Verify Password Invalid
 
 Verify Login Successful
     Verify Element Exists    ${gmail_logo}    Login failed! Gmail logo not found.
-
-*** Test Cases ***
-Gmail Login Test
-    Input Email    ${EMAIL}
-    Verify Email Invalid
-    Input Password    ${PASSWORD}
-    Verify Password Invalid
-    Verify Login Successful

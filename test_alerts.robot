@@ -1,19 +1,15 @@
 *** Settings ***
-Resource    Resources/commons.robot
+Resource            Resources/commons.robot
 
-Test Teardown    Ending the test
+Test Teardown       Ending the test
+
 
 *** Variables ***
-${INPUT_TEXT}    Rahul Arora
+${INPUT_TEXT}       Rahul Arora
 ${EXPECTED_TEXT}    Hello ${INPUT_TEXT}! How are you today?
 
-*** Keywords ***
-Ending the test
-    Run Keyword And Ignore Error    Capture Page Screenshot
-    close browser
 
 *** Test Cases ***
-
 Handling Dropdown list
     launching browser    https://way2automation.com/way2auto_jquery/index.php    chrome
     # maximize browser window
@@ -28,7 +24,7 @@ Handling Dropdown list
     # Simple Alert (works)
     select frame    xpath://*[@id="example-1-tab-1"]/div/iframe
     click button    xpath:/html/body/button
-    sleep    3s
+    sleep    2s
 
     ${alert_text}=    handle alert    action=ACCEPT
     log to console    \nSimple Alert Text: ${alert_text}
@@ -38,7 +34,7 @@ Handling Dropdown list
     click element    xpath://*[@id="wrapper"]/div[1]/div[1]/div[1]/ul/li[2]/a
     select frame    xpath://*[@id="example-1-tab-2"]/div/iframe
     click button    xpath:/html/body/button
-    sleep    3s
+    sleep    2s
 
     # ✅ Do NOT try to detect the alert manually - just immediately input text and accept
     input text into alert    ${INPUT_TEXT}    action=ACCEPT
@@ -50,3 +46,9 @@ Handling Dropdown list
 
     unselect frame
     sleep    2s
+
+
+*** Keywords ***
+Ending the test
+    Run Keyword And Ignore Error    Capture Page Screenshot
+    close browser
