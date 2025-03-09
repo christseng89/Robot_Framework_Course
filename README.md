@@ -238,6 +238,8 @@ robot -d tests test_windowHandling.robot
 ``` 
 
 ### Conditional statements - If and Else
+- https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#if-else-syntax
+
 ```cmd
 robot -d tests test_if_else.robot
 robot -d tests -v num1:15 test_if_else.robot
@@ -245,6 +247,8 @@ robot -d tests -v num1:8 test_if_else.robot
 ```
 
 ### Loops
+- https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#for-loops
+
 ```cmd
 robot -d tests test_loops.robot
 
@@ -396,3 +400,15 @@ pip install -U robotframework-tidy
 robotidy test_calendar.robot
 ```
 
+### Exception Handling in ROBOT Framework
+- https://robotframework.org/robotframework/latest/RobotFrameworkUserGuide.html#try-except-syntax
+
+```cmd
+robot -d tests test_exception.robot
+robot -d tests -v DIVISOR:4 test_try_except.robot
+robot -d tests -v DIVISOR:0 test_try_except.robot
+
+robot -d tests test_try_except2.robot
+robot -d tests -v email_id:email test_try_except2.robot
+
+```
