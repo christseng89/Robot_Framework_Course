@@ -49,3 +49,4 @@ report*.html
 selenium-screenshot*.png
 #first_demo.robot
 config.robot
+*.exe
