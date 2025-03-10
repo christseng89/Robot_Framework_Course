@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation       Learning Try and Except - Exception handling
 
-Library             BuiltIn
+#Library             BuiltIn
 Library             SeleniumLibrary
 Library             AllureLibrary
 Library             Built_In/CustomLib.py  # Fix the import

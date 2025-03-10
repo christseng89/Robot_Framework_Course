@@ -508,9 +508,18 @@ robot -d tests -v email_id:email test_try_except2.robot
 robot -d tests -v email_id:email --listener allure_robotframework:Allure_Report test_try_except2.robot
 robot -d tests --listener allure_robotframework:Allure_Report test_try_except2.robot
 
+robot -d tests --listener allure_robotframework:Allure_Report test_calendar.robot
+```
+- test_calendar.robot
+
+```code
+Teardown
+    run keyword if test failed    Capture Screenshot
+    
 ```
 
 ```cmd
 allure serve --port 2666 Allure_Report
 
 ```
+
