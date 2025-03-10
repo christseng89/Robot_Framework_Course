@@ -444,3 +444,73 @@ allure serve Allure_Report
 REM 2 Test Cases ONLY...
 REM Timeline will show the 3 runs
 ```
+
+### Capture screenshots and attaching it to Allure Reports
+- Edit test_try_except2.robot
+
+```note
+Library             BuiltIn
+Library             SeleniumLibrary
+Library             AllureLibrary
+Library             Built_In/CustomLib.py
+...
+    FINALLY
+        Capture Screenshot
+        close browser
+...
+Divide
+    [Arguments]    ${a}    ${b}
+    TRY
+        ${result}=    Evaluate    ${a} / ${b}
+        RETURN    PASS    ${result}
+    EXCEPT
+        RETURN    FAIL    0
+    END
+
+```
+
+- Edit CustomLib.py
+
+```python
+# Use -d tests from the Command Line ...
+...
+import os
+...
+
+def capture_screenshot():
+    lib = get_selenium_lib()
+    randomNum = random.randint(0, 9999)
+    fileName = f"seleniumLib-{randomNum}.png"
+
+    # Get the output directory from Robot Framework
+    output_dir = BuiltIn().get_variable_value('${OUTPUT_DIR}', 'tests1')
+
+    # Construct absolute path for the screenshot
+    file_path = os.path.join(output_dir, fileName)
+
+    # Capture screenshot
+    lib.capture_page_screenshot(file_path)
+
+    # Attach file to Allure report if Allure is available
+    allure = get_allure_lib()
+    if allure:
+        allure.attach_file(file_path)
+
+    return file_path
+```
+
+```cmd
+robot -d tests test_try_except2.robot
+robot -d tests -v email_id:email test_try_except2.robot
+```
+
+```cmd
+robot -d tests -v email_id:email --listener allure_robotframework:Allure_Report test_try_except2.robot
+robot -d tests --listener allure_robotframework:Allure_Report test_try_except2.robot
+
+```
+
+```cmd
+allure serve --port 2666 Allure_Report
+
+```

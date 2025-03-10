@@ -1,5 +1,6 @@
 from robot.libraries.BuiltIn import BuiltIn
 import random
+import os
 
 # Global variable initially set to None
 seleniumLib = None
@@ -23,7 +24,8 @@ def print_console():
     print("Hello")
 
 def print_title():
-    title = get_selenium_lib().get_title()
+    lib = get_selenium_lib()
+    title = lib.get_title()
     print(title)
 
 def select_month(xpath, month, date):
@@ -37,5 +39,15 @@ def capture_screenshot():
     lib = get_selenium_lib()
     randomNum = random.randint(0, 9999)
     fileName = f"seleniumLib-{randomNum}.png"
-    lib.capture_page_screenshot(fileName)
-    get_allure_lib().attach_file(f'./{fileName}')
+
+    # Get the output directory from Robot Framework
+    output_dir = BuiltIn().get_variable_value('${OUTPUT_DIR}', 'tests123')
+    file_path = os.path.join(output_dir, fileName)
+    print(f"✅ File Path: {file_path}")
+
+    lib.capture_page_screenshot(file_path)
+    allure = get_allure_lib()
+    if allure:
+        allure.attach_file(file_path)
+
+    return file_path
