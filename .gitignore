@@ -35,6 +35,7 @@ woocommerce-sample-data/
 
 build/
 dist/
+output/
 *.egg-info/
 reports*/
 pabot_results/

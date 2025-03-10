@@ -412,3 +412,35 @@ robot -d tests test_try_except2.robot
 robot -d tests -v email_id:email test_try_except2.robot
 
 ```
+
+## Allure Reports
+
+### Generating Allure Reports
+- https://pypi.org/project/allure-robotframework/
+
+```cmd
+pip install allure-robotframework
+```
+
+- NodeJS
+```cmd
+npm install -g allure-commandline --save-dev
+```
+
+```cmd
+robot -d tests --listener allure_robotframework test_try_except2.robot
+REM output\allure folder
+
+robot -d tests --listener allure_robotframework:Allure_Report test_try_except2.robot
+robot -d tests -v email_id:email --listener allure_robotframework:Allure_Report test_try_except2.robot
+REM Failed Test Case
+robot -d tests --listener allure_robotframework:Allure_Report test_calendar.robot
+
+```
+
+- Open Allure Report - last one Only
+```cmd
+allure serve Allure_Report
+REM 2 Test Cases ONLY...
+REM Timeline will show the 3 runs
+```
