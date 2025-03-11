@@ -577,3 +577,27 @@ pabot --processes 3 -d tests --listener allure_robotframework:Allure_Report .\Da
    Elapsed time:  54.19 seconds
  
 ```
+
+## Tagging, Fixtures and Assertions
+
+### Tagging the test cases
+- test_try_except.robot
+- test_try_except2.robot
+
+```code
+Sample Try / Except
+    [tags]    try_except
+```
+
+```cmd
+pabot -d tests --processes 2 --listener allure_robotframework:Allure_Report --include try_except .
+   ...
+   2 tests, 2 passed, 0 failed, 0 skipped.
+   ...
+   
+pabot -d tests --processes 3 --listener allure_robotframework:Allure_Report --exclude try_except test*.robot
+   ...
+   32 tests, 32 passed, 0 failed, 0 skipped.
+   ...
+   
+```

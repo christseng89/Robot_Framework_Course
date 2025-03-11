@@ -1,5 +1,25 @@
-datasources:fba20bd41f60f6d8dadb294c89c1e2aea5a64e2b
-commandlineoptions:91cf2d4c74d01d1cb7d92c6949e075c1fd7963fc
+datasources:578be33c46c18fc986fbde67125149e1c1818325
+commandlineoptions:3104967bf171c30896c1ea300412e44a9ba2bfe8
 suitesfrom:no-suites-from-option
-file:4f774e4c3469ebbd8edcbc9e485460d4362f0602
---suite DataDrivenTest.Test Datadriven
+file:3f36067761cff020c40914063a0de7c0e61c4212
+--suite Suites.Test Alerts
+--suite Suites.Test Calendar
+--suite Suites.Test Calendar Jq
+--suite Suites.Test Checkboxes
+--suite Suites.Test Drag And Drop
+--suite Suites.Test Dropdown
+--suite Suites.Test Frames
+--suite Suites.Test If Else
+--suite Suites.Test Javascript
+--suite Suites.Test Javascript2
+--suite Suites.Test Keywords
+--suite Suites.Test Loops
+--suite Suites.Test Mouseover
+--suite Suites.Test Registration
+--suite Suites.Test Resizable
+--suite Suites.Test Right Click
+--suite Suites.Test Slider
+--suite Suites.Test Try Except
+--suite Suites.Test Variables
+--suite Suites.Test Webtables
+--suite Suites.test windowHandling

@@ -10,6 +10,7 @@ ${DIVISOR}      2
 
 *** Test Cases ***
 Sample Try / Except
+    [tags]    try_except
     [Documentation]    Simple Try and Except
     TRY
         log to console    \n✅ Hello World

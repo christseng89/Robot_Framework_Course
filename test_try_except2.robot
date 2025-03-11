@@ -13,6 +13,7 @@ ${EMAIL_ID}     identifierId
 
 *** Test Cases ***
 Selenium Try / Except
+    [tags]    try_except
     [Documentation]    Try and Except Selenium
     TRY
         Open Browser    https://gmail.com    chrome    options=add_argument("--disable-gpu")
