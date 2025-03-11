@@ -10,6 +10,7 @@ ${TABLE}    //*[@id="bat-board"]
 
 *** Test Cases ***
 Handling WebTables
+    sleep    2s
     launching browser    https://imsports.rediff.com/score/in_asa_1081672.html    chrome
 
     @{rows}=    get webelements    ${TABLE}//tr

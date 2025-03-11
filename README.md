@@ -523,3 +523,57 @@ allure serve --port 2666 Allure_Report
 
 ```
 
+## Parallet Test Execution
+### Parallel Test Execution using Pabot
+- https://docs.robotframework.org/docs/parallel
+
+```cmd
+pip install -U robotframework-pabot
+robot -d tests --listener allure_robotframework:Allure_Report DataDrivenTest\test_datadriven.robot
+
+pabot --processes 2 -d tests --listener allure_robotframework:Allure_Report DataDrivenTest\test_datadriven.robot
+   ...
+   Robot Framework remote server at 127.0.0.1:8270 started.
+   Storing .pabotsuitenames file
+   2025-03-11 14:47:52.104115 [PID:6764] [0] [ID:0] EXECUTING Test Datadriven
+   2025-03-11 14:48:07.381371 [PID:6764] [0] [ID:0] still running Test Datadriven after 15.0 seconds
+   2025-03-11 14:48:27.715000 [PID:6764] [0] [ID:0] still running Test Datadriven after 35.0 seconds
+   2025-03-11 14:48:53.116358 [PID:6764] [0] [ID:0] still running Test Datadriven after 60.0 seconds
+   2025-03-11 14:49:07.098242 [PID:6764] [0] [ID:0] PASSED Test Datadriven in 73.8 seconds
+   4 tests, 4 passed, 0 failed, 0 skipped.
+   ===================================================
+   Output:  C:\Users\samfi\PycharmProjects\Robot_Framework\tests\output.xml
+   Log:     C:\Users\samfi\PycharmProjects\Robot_Framework\tests\log.html
+   Report:  C:\Users\samfi\PycharmProjects\Robot_Framework\tests\report.html
+   ...
+   Total testing: 1 minute 13.80 seconds
+   Elapsed time:  1 minute 15.82 seconds
+   
+```
+
+- Test all robots in the folder Parallel
+```cmd
+REM All folders and subfolders
+pabot --processes 3 -d tests --listener allure_robotframework:Allure_Report .
+
+REM Only the current folder
+pabot --processes 3 -d tests --listener allure_robotframework:Allure_Report test*.robot
+   ...
+   34 tests, 34 passed, 0 failed, 0 skipped.
+   ...
+   Total testing: 6 minutes 36.30 seconds
+   Elapsed time:  2 minutes 24.37 seconds
+
+allure serve --port 2666 Allure_Report
+```
+- Test Subfolder
+
+```cmd
+pabot --processes 3 -d tests --listener allure_robotframework:Allure_Report .\DataDrivenTest
+   ...
+   4 tests, 4 passed, 0 failed, 0 skipped.
+   ...
+   Total testing: 52.50 seconds
+   Elapsed time:  54.19 seconds
+ 
+```

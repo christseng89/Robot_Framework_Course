@@ -10,6 +10,8 @@ Test Teardown       Ending the test
 Handling Calendar
     launching browser    https://www.way2automation.com/way2auto_jquery/datepicker.php#load_box    chrome
     select frame    xpath=//iframe[contains(@src, 'datepicker/defult1.html')]
+
+    wait until page contains element    id:datepicker
     click element    id:datepicker
 
     # Debug prints
