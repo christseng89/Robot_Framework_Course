@@ -1,19 +1,21 @@
 *** Settings ***
 Documentation       Learning Try and Except - Exception handling
 
-#Library             BuiltIn
+# Library    BuiltIn
 Library             SeleniumLibrary
 Library             AllureLibrary
-Library             Built_In/CustomLib.py  # Fix the import
+Library             Built_In/CustomLib.py    # Fix the import
+
 
 *** Variables ***
 ${EMAIL_ID}     identifierId
+
 
 *** Test Cases ***
 Selenium Try / Except
     [Documentation]    Try and Except Selenium
     TRY
-        Open Browser    https://gmail.com    chrome  options=add_argument("--disable-gpu")
+        Open Browser    https://gmail.com    chrome    options=add_argument("--disable-gpu")
         Maximize Browser Window
         Input Text    id:${EMAIL_ID}    test123@gmail.com
     EXCEPT
@@ -24,6 +26,7 @@ Selenium Try / Except
         Capture Screenshot
         Close Browser
     END
+
 
 *** Keywords ***
 Divide
