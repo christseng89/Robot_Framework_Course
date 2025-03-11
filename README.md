@@ -627,3 +627,9 @@ robot -d tests --listener allure_robotframework:Allure_Report Fixtures\LoginTest
    Close DB Connection
    ...
 ```
+
+### Test Assertions (Keywords examples)
+- https://robotframework.org/SeleniumLibrary/SeleniumLibrary.html
+  - Alert Should Be Present
+  - Element Attribute Value Should Be
+  - Page Should Contain
