@@ -601,3 +601,29 @@ pabot -d tests --processes 3 --listener allure_robotframework:Allure_Report --ex
    ...
    
 ```
+
+### Test Fixtures
+- Test Setup (Each Test Case)
+- Test Teardown (Each Test Case)
+
+- Suite Setup (Only Once)
+- Suite Teardown (Only Once)
+
+```cmd
+robot -d tests --listener allure_robotframework:Allure_Report Fixtures\LoginTest.robot
+   ...
+   Create DB Connection
+   Login Test                                                            Launching Browser
+   .Executing Login Test
+   .Closing Browser
+   Login Test                                                            | PASS |
+   ------------------------------------------------------------------------------
+   User reg Test                                                         Launching Browser
+   .Executing User reg test
+   .Closing Browser
+   User reg Test                                                         | PASS |
+   ...                                                  
+   ------------------------------------------------------------------------------
+   Close DB Connection
+   ...
+```
