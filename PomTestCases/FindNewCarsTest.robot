@@ -1,10 +1,10 @@
 *** Settings ***
 
-Resource    ../PageObjects/CarBase.robot
+#Resource    ../PageObjects/CarBase.robot
 Resource    ../PageObjects/HomePage.robot
 Resource    ../Resources/commons.robot
-Resource    ../PageObjects/NewCarPage.robot
-Resource    ../PageObjects/ToyotaCarPage.robot
+#Resource    ../PageObjects/NewCarPage.robot
+#Resource    ../PageObjects/ToyotaCarPage.robot
 
 
 
@@ -25,8 +25,8 @@ Find New Cars Test
     #verify toyota car heading    Toyota Cars1
     #Go to Kia
     #verify car heading    Kia Cars
-    Go to BMW
-    verify car heading    BMW Cars
+#    Go to BMW
+#    verify car heading    BMW Cars
 
 
     sleep    2s

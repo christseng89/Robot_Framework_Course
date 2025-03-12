@@ -655,3 +655,10 @@ robot -d tests PageObjects\HomePage.robot
     [ ERROR ] Suite 'HomePage' contains no tests or tasks. (Alright)
     REM pabot ... --exclude PageObjects\ ...
 ```
+
+### Designing the first Test Case
+- PomTestCases\FindNewCarsTest.robot
+
+```cmd
+robot -d tests PomTestCases\FindNewCarsTest.robot
+```
