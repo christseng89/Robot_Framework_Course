@@ -1,6 +1,7 @@
 *** Settings ***
 Library         SeleniumLibrary
 Variables       locators.py
+Variables       locators_pom.py
 # Library    AllureLibrary
 
 

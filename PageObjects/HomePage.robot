@@ -1,6 +1,6 @@
 *** Settings ***
 Library    SeleniumLibrary
-Variables    ../Resources/locators.py
+Variables    ../Resources/locators_pom.py
 
 *** Keywords ***
 Go to new cars page
@@ -8,10 +8,10 @@ Go to new cars page
     click element    ${findnewcar_xpath}
     element text should be    ${newcar_header_xpath}    New Cars
 
-find new cars
+ find new cars
 
 
-find old cars
+ find old cars
 
 
-search the page
+ search the page

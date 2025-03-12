@@ -642,7 +642,16 @@ robot -d tests --listener allure_robotframework:Allure_Report Fixtures\LoginTest
 ```note
 • Business Elements (Locators) provide UI locators for interaction.
 • Common Resources include reusable utilities.
-• Page Objects Specification contains business logic and interactions in folder PageObjects.
-• Test Cases use Page Objects for structured test execution in folder PomTestCases.  
+• The Page Objects Specification includes business keywords and references elements in the Locators, 
+    which are then saved in the 'PageObjects' folder.
+• Test Cases use Page Objects for structured test cases in folder 'PomTestCases'.  
 • Data Driven supplies test data for automation.
+```
+### Designing the first Page Object file
+- PageObjects\HomePage.robot
+
+```cmd
+robot -d tests PageObjects\HomePage.robot               
+    [ ERROR ] Suite 'HomePage' contains no tests or tasks. (Alright)
+    REM pabot ... --exclude PageObjects\ ...
 ```
