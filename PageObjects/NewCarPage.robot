@@ -13,19 +13,25 @@ Find Brand Car
     sleep    3s
 
 Go to Toyota
-    Find Brand Car    ${toyotacar_xpath}    Toyota Cars
+    [Arguments]    ${car_heading}
+    Find Brand Car    ${toyotacar_xpath}    ${car_heading}
 
 Go to Kia
-    Find Brand Car    ${kiacar_xpath}    Kia Cars
+    [Arguments]    ${car_heading}
+    Find Brand Car    ${kiacar_xpath}    ${car_heading}
 
 Go to BMW
-    Find Brand Car    ${bmwcar_xpath}    BMW Cars
+    [Arguments]    ${car_heading}
+    Find Brand Car    ${bmwcar_xpath}    ${car_heading}
 
 Go to Maruti
-    Find Brand Car    ${maruticar_xpath}    Maruti Cars
+    [Arguments]    ${car_heading}
+    Find Brand Car    ${maruticar_xpath}    ${car_heading}
 
 Go to Tata
-    Find Brand Car    ${tatacar_xpath}    Tata Cars
+    [Arguments]    ${car_heading}
+    Find Brand Car    ${tatacar_xpath}    ${car_heading}
 
 Go to Benz
-    Find Brand Car    ${benzcar_xpath}    Mercedes-Benz Cars
+    [Arguments]    ${car_heading}
+    Find Brand Car    ${benzcar_xpath}    ${car_heading}

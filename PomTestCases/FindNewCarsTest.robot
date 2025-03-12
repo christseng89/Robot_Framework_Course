@@ -25,10 +25,10 @@ Find New Cars Test
 
 *** Keywords ***
 Execute Car Brand Navigation
-    IF    '${BRAND}' == 'Toyota'    Go to Toyota
-    IF    '${BRAND}' == 'Kia'    Go to Kia
-    IF    '${BRAND}' == 'BMW'    Go to BMW
-    IF    '${BRAND}' == 'Benz'    Go to Benz
-    IF    '${BRAND}' == 'Tata'    Go to Tata
-    IF    '${BRAND}' == 'Maruti'    Go to Maruti
+    IF    '${BRAND}' == 'Toyota'    Go to Toyota    Toyota Cars
+    IF    '${BRAND}' == 'Kia'    Go to Kia    Kia Cars
+    IF    '${BRAND}' == 'BMW'    Go to BMW    BMW Cars
+    IF    '${BRAND}' == 'Benz'    Go to Benz    Mercedes-Benz Cars
+    IF    '${BRAND}' == 'Tata'    Go to Tata    Tata Cars
+    IF    '${BRAND}' == 'Maruti'    Go to Maruti    Maruti Cars
     IF    '${BRAND}' not in @{CAR_BRANDS}    Fail    Invalid brand: ${BRAND}
