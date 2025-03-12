@@ -1,6 +1,7 @@
 *** Settings ***
-Library    SeleniumLibrary
+Library     SeleniumLibrary
 Resource    ../Resources/commons.robot
+
 
 *** Keywords ***
 verify car heading
@@ -11,7 +12,6 @@ get car name
     @{carnames}=    get webelements    ${carnames_xpath}
 
     FOR    ${carname}    IN    @{carnames}
-
         ${text}=    get text    ${carname}
 
         log to console    ${text}

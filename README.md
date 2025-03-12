@@ -661,4 +661,7 @@ robot -d tests PageObjects\HomePage.robot
 
 ```cmd
 robot -d tests PomTestCases\FindNewCarsTest.robot
+robot -d tests -v Brand:BMW PomTestCases\FindNewCarsTest.robot
+robot -d tests -v Brand:Kia PomTestCases\FindNewCarsTest.robot
+
 ```

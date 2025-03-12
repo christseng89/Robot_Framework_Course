@@ -1,20 +1,22 @@
 *** Settings ***
+Resource            ../PageObjects/CarBase.robot
+Resource            ../PageObjects/HomePage.robot
+Resource            ../Resources/commons.robot
+Resource            ../PageObjects/NewCarPage.robot
+Resource            ../PageObjects/ToyotaCarPage.robot
+Library             DataDriver    ../Resources/testdata.xlsx    sheet_name=FindNewCarTest
 
-Resource    ../PageObjects/CarBase.robot
-Resource    ../PageObjects/HomePage.robot
-Resource    ../Resources/commons.robot
-Resource    ../PageObjects/NewCarPage.robot
-Resource    ../PageObjects/ToyotaCarPage.robot
-
-Library    DataDriver    ../Resources/testdata.xlsx    sheet_name=FindNewCarTest
-
-
-
+Test Teardown       Finish Test Case
+Test Template       Find New Cars
 
 
-Test Template    Find New Cars
+*** Variables ***
+${testsiteurl}=     https://www.carwale.com/
 
-Test Teardown    Finish Test Case
+
+*** Test Cases ***
+Get Cars Name Test ${brandname}    ${browser}    ${brandname}    ${carheading}
+
 
 *** Keywords ***
 Find New Cars
@@ -23,9 +25,9 @@ Find New Cars
     go to new cars page
     IF    "${brandname}" == "toyota"
         Go to Toyota
-    ELSE IF     "${brandname}" == "bmw"
+    ELSE IF    "${brandname}" == "bmw"
         Go to BMW
-    ELSE IF     "${brandname}" == "kia"
+    ELSE IF    "${brandname}" == "kia"
         Go to Kia
     ELSE
         log to console    Invalid car selected
@@ -34,14 +36,3 @@ Find New Cars
     get car name
 
     sleep    2s
-
-*** Variables ***
-${testsiteurl}=    https://www.carwale.com/
-
-
-
-
-
-*** Test Cases ***
-Get Cars Name Test ${brandname}    ${browser}    ${brandname}    ${carheading}
-
