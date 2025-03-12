@@ -52,3 +52,4 @@ selenium-screenshot*.png
 #first_demo.robot
 config.robot
 *.exe
+.qodo
