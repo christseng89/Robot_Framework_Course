@@ -35,3 +35,7 @@ Go to Tata
 Go to Benz
     [Arguments]    ${car_heading}
     Find Brand Car    ${benzcar_xpath}    ${car_heading}
+
+Go to Honda
+    [Arguments]    ${car_heading}
+    Find Brand Car    ${hondacar_xpath}    ${car_heading}

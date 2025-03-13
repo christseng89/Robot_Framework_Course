@@ -665,3 +665,31 @@ robot -d tests -v Brand:BMW PomTestCases\FindNewCarsTest.robot
 robot -d tests -v Brand:Kia PomTestCases\FindNewCarsTest.robot
 
 ```
+
+### Adding the Data Driven Test
+- PomTestCases\FindNewCarsTestDataDriven.robot
+
+```note
+...
+Test Template       Find New Cars Test    # Ensure this matches the keyword name
+...
+*** Test Cases ***
+Find New Cars Data Driven Test    ${browser}    ${brandname}    ${carheading}
+
+
+*** Keywords ***
+Find New Cars Test
+    [Arguments]    ${browser}    ${brandname}    ${carheading}
+    launching browser    ${TestSiteUrl}    ${browser}
+...
+    
+```
+
+```cmd
+robot -d tests PomTestCases\FindNewCarsTestDataDriven.robot
+robot -d tests PomTestCases\GetCarNameTest.robot
+
+pabot -d tests --processes 3 --listener allure_robotframework:Allure_Report PomTestCases\.
+allure serve --port 2666 Allure_Report
+
+```

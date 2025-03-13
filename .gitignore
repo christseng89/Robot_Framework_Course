@@ -54,3 +54,4 @@ config.robot
 *.exe
 .qodo
 .vscode
+.pabotsuitenames

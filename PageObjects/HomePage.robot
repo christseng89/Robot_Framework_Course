@@ -1,3 +1,7 @@
+*** Comments ***
+# Home Page -> Find New Cars -> New Cars Page -> Brand Car Page (CarBase.robot)
+
+
 *** Settings ***
 Library         SeleniumLibrary
 Variables       ../Resources/locators_pom.py
@@ -5,16 +9,21 @@ Variables       ../Resources/locators_pom.py
 
 *** Keywords ***
 Go to new cars page
-    mouse over    ${newcar_xpath}
-    click element    ${findnewcar_xpath}
-    element text should be    ${newcar_header_xpath}    NEW CARS
+    # Home Page
+    click element    ${newcar_xpath}
+    # log to console    \n'New Cars' clicked
 
- find new cars
-    mouse over    ${newcar_xpath}
+    wait until page contains element    ${newcar_header_xpath}    timeout=2s
+    click element    ${findnewcar_xpath}
+    # log to console    'Find New Cars' clicked
+    
+    # New Cars Page
+    wait until page contains element    ${newcar_header_xpath}    timeout=2s
+    element should contain    ${newcar_header_xpath}    NEW CARS
+    # log to console    'New Cars' page loaded
+
+# find new cars
 
 # find old cars
-#    mouse over    ${newcar_xpath}
-#
-#
+
 # search the page
-#    mouse over    ${newcar_xpath}

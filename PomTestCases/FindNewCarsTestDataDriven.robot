@@ -1,37 +1,42 @@
 *** Settings ***
 Resource            ../Resources/commons.robot
-Resource            ../PageObjects/CarBase.robot
 Resource            ../PageObjects/HomePage.robot
 Resource            ../PageObjects/NewCarPage.robot
-Resource            ../PageObjects/ToyotaCarPage.robot
+# Data Driven Test
 Library             DataDriver    ../Resources/testdata.xlsx    sheet_name=FindNewCarTest
 
+Suite Teardown      Finish Test Case
 Test Teardown       Finish Test Case
-Test Template       Find New Cars
+Test Template       Find New Cars Test   # Ensure this matches the keyword name
 
 
 *** Variables ***
-${testsiteurl}=     https://www.carwale.com/
+${TestSiteUrl}=     https://www.carwale.com/
+@{CAR_BRANDS}=      Toyota    Kia    Bmw    Benz    Tata    Maruti  Honda
+${BRAND}=           Toyota    # Default brand to execute
 
 
 *** Test Cases ***
-Find New Cars Test ${brandname}    ${browser}    ${brandname}    ${carheading}
+Find New Cars Data Driven Test    ${browser}    ${brandname}    ${carheading}
 
 
 *** Keywords ***
-Find New Cars
+Find New Cars Test
     [Arguments]    ${browser}    ${brandname}    ${carheading}
-    launching browser    ${testsiteurl}    ${browser}
+    launching browser    ${TestSiteUrl}    ${browser}
     go to new cars page
-    IF    "${brandname}" == "toyota"
-        Go to Toyota
-    ELSE IF    "${brandname}" == "bmw"
-        Go to BMW
-    ELSE IF    "${brandname}" == "kia"
-        Go to Kia
-    ELSE
-        log to console    Invalid car selected
-    END
-    verify car heading    ${carheading}
+#    sleep    1s
 
-    sleep    2s
+    ${brand}=    Evaluate    '${brandname}'.title()    # Capitalize brand name once
+
+    IF    '${brand}' == 'Toyota'    Go to Toyota    ${carheading}
+    IF    '${brand}' == 'Kia'    Go to Kia    ${carheading}
+    IF    '${brand}' == 'Bmw'    Go to BMW    ${carheading}
+    IF    '${brand}' == 'Benz'    Go to Benz    ${carheading}
+    IF    '${brand}' == 'Tata'    Go to Tata    ${carheading}
+    IF    '${brand}' == 'Maruti'    Go to Maruti    ${carheading}
+    IF    '${brand}' == 'Honda'    Go to Honda    ${carheading}
+
+    IF    '${brand}' not in @{CAR_BRANDS}    Fail    Invalid brand: ${brand}
+
+    sleep    1s

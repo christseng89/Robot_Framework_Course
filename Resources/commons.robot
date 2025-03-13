@@ -2,17 +2,24 @@
 Library         SeleniumLibrary
 Variables       locators.py
 Variables       locators_pom.py
-# Library    AllureLibrary
-
-
-*** Variables ***
-${OPTIONS}      add_experimental_option("excludeSwitches", ["enable-logging"])
 
 
 *** Keywords ***
 launching browser
-    [Arguments]    ${url}    ${browser}    ${options}=${OPTIONS}
-    open browser    ${url}    ${browser}    options=${options}
+    [Arguments]    ${url}    ${browser}
+
+    ${chrome_options}=    Evaluate    selenium.webdriver.ChromeOptions()    modules=selenium
+    Call Method    ${chrome_options}    add_argument    --ignore-certificate-errors
+    Call Method    ${chrome_options}    add_argument    --disable-dev-shm-usage
+    Call Method    ${chrome_options}    add_argument    --disable-gpu
+    Call Method    ${chrome_options}    add_argument    --disable-blink-features\=AutomationControlled
+    Call Method    ${chrome_options}    add_argument    --start-maximized
+
+    IF    '${browser}' == 'chrome'
+        Open Browser    ${url}    ${browser}    options=${chrome_options}
+    ELSE IF    '${browser}' == 'firefox'
+        open browser    ${url}    ${browser}
+    END
 
     maximize browser window
     set selenium implicit wait    10 seconds
