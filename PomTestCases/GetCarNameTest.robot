@@ -16,7 +16,7 @@ ${testsiteurl}=     https://www.carwale.com/
 
 
 *** Test Cases ***
-Get Cars Name Test    ${browser}    ${brandname}    ${carheading}
+Get Cars Name DD Test '${carheading}'    ${browser}    ${brandname}    ${carheading}
 
 
 *** Keywords ***

@@ -17,7 +17,7 @@ ${BRAND}=           Toyota    # Default brand to execute
 
 
 *** Test Cases ***
-Find New Cars Data Driven Test    ${browser}    ${brandname}    ${carheading}
+Find New Cars DD Test '${carheading}'    ${browser}    ${brandname}    ${carheading}
 
 
 *** Keywords ***
