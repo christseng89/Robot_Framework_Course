@@ -736,3 +736,19 @@ java -Dhudson.model.DirectoryBrowserSupport.CSP="" -jar jenkins.war
 
 ```
 - Dashboard => RobotFramework Project => Build Now => Robot Framework Report
+
+## Appium Mobile Automation
+
+### What is Appium?
+- https://appium.io/
+- Appium is an open-source project and ecosystem of related software, designed to facilitate UI automation of many app platforms, including mobile (iOS, Android, Tizen), browser (Chrome, Firefox, Safari), desktop (macOS, Windows), TV (Roku, tvOS, Android TV, Samsung), and more!
+
+### Appium Installation
+- https://appium.io/docs/en/about-appium/getting-started/
+- Appium is an open-source project and ecosystem of related software, designed to facilitate UI automation of many app platforms, including mobile (iOS, Android, Tizen), browser (Chrome, Firefox, Safari), desktop (macOS, Windows), TV (Roku, tvOS, Android TV, Samsung), and more!
+
+```cmd
+npm install -g appium
+appium --version
+   2.17.0
+```
