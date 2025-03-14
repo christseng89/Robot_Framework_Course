@@ -55,3 +55,4 @@ config.robot
 .qodo
 .vscode
 .pabotsuitenames
+jenkins.war

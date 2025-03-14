@@ -693,3 +693,46 @@ pabot -d tests --processes 3 --listener allure_robotframework:Allure_Report PomT
 allure serve --port 2666 Allure_Report
 
 ```
+
+### Integrating Test with Jenkins
+
+```cmd
+java -jar jenkins.war
+    ...
+    Jenkins initial setup is required. An admin user has been created and a password generated.
+    Please use the following password to proceed to installation:
+    
+    b3554df7bbeb4dabb8be33b4d8839226
+    
+    This may also be found at: C:\Users\samfi\.jenkins\secrets\initialAdminPassword
+    ...
+    2025-03-13 11:56:09.548+0000 [id=26]    INFO    hudson.lifecycle.Lifecycle#onReady: Jenkins is fully up and running
+    2025-03-13 11:56:11.838+0000 [id=69]    INFO    h.m.DownloadService$Downloadable#load: Obtained the updated data file for hudson.tasks.Maven.MavenInstaller
+    2025-03-13 11:56:11.843+0000 [id=69]    INFO    hudson.util.Retrier#start: Performed the action check updates server successfully at the attempt #1
+
+type C:\Users\samfi\.jenkins\secrets\initialAdminPassword
+    
+```
+- http://localhost:8080/ => Install Suggested Plugins
+
+- New Item => RobotFramework Project => Freestyle project => OK
+- Build Steps => Add build step => Execute Windows batch command => Save
+
+```cmd
+cd C:\Users\samfi\PycharmProjects\Robot_Framework
+robot -d tests PomTestCases\FindNewCarsTestDataDriven.robot
+```
+
+- Dashboard => RobotFramework Project => Build Now
+- Dashboard => RobotFramework Project => Last build => Console Output
+- Dashboard => Manage Jenkins => Plugins => Available plugins => HTML Publisher => Install
+- Dashboard => RobotFramework Project => Configure => Post-build Actions => Add post-build action => Publish HTML reports => 
+  - HTML directory to archive => C:\Users\samfi\PycharmProjects\Robot_Framework\tests
+  - Index page[s] => report.html 
+  - Report title => Robot Framework Report => Save => Build Now
+ 
+```cmd
+java -Dhudson.model.DirectoryBrowserSupport.CSP="" -jar jenkins.war
+
+```
+- Dashboard => RobotFramework Project => Build Now => Robot Framework Report

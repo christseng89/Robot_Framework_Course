@@ -20,5 +20,5 @@ get car name
     FOR    ${carname}    IN    @{carnames}
         ${text}=    get text    ${carname}
 
-        log to console    ${text}
+        log to console    \t${text}
     END
