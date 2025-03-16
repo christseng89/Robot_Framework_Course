@@ -10,3 +10,15 @@ ${EMAIL_PASSWORD}       t1234Chris
 &{browsers}             1=Chrome    2=Firefox
 # Set to 1 for Chrome, 2 for Firefox (Default: Chrome)
 ${BROWSER_TYPE}         1
+
+${JENKINS_USER}         JENKINS_USER
+${JENKINS_PASSWORD}     JENKINS_PASSWORD
+
+# MySQL Database Variables
+${MYSQL_HOST}       localhost
+${MYSQL_PORT}       3306
+${MYSQL_NAME}       rich_text_db
+${MYSQL_TABLE}      rich_text
+${MYSQL_USER}       root
+${MYSQL_PASSWORD}   DB_PASSWORD
+${MYSQL_TABLE_ID}   id

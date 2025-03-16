@@ -756,3 +756,17 @@ pip install robotframework-requests
 robot -d tests test_api_request.robot
 
 ```
+
+## Database Testing
+
+### MySQL DB Testing
+- https://www.w3schools.com/sql/trysql.asp?filename=trysql_select_all
+
+```cmd
+pip install robotframework-databaselibrary
+pip install PyMySQL
+```
+
+```cmd
+robot -d tests test_mysql_connection.robot
+```
