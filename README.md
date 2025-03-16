@@ -737,18 +737,22 @@ java -Dhudson.model.DirectoryBrowserSupport.CSP="" -jar jenkins.war
 ```
 - Dashboard => RobotFramework Project => Build Now => Robot Framework Report
 
-## Appium Mobile Automation
+## Robot Framework Request Library
 
-### What is Appium?
-- https://appium.io/
-- Appium is an open-source project and ecosystem of related software, designed to facilitate UI automation of many app platforms, including mobile (iOS, Android, Tizen), browser (Chrome, Firefox, Safari), desktop (macOS, Windows), TV (Roku, tvOS, Android TV, Samsung), and more!
+### Test API Request
+```cmd
+REM RestAPI sample
+java -jar way2automation-restapi.jar
+    ...
+    2025-03-16 11:11:03.226  INFO 372 --- [           main] o.s.b.w.embedded.tomcat.TomcatWebServer  : Tomcat started on port(s): 8080 (http) with context path ''
+    2025-03-16 11:11:03.233  INFO 372 --- [           main] c.w.testapi.TestapiApplication           : Started TestapiApplication in 10.902 seconds (JVM running for 12.3)
 
-### Appium Installation
-- https://appium.io/docs/en/about-appium/getting-started/
-- Appium is an open-source project and ecosystem of related software, designed to facilitate UI automation of many app platforms, including mobile (iOS, Android, Tizen), browser (Chrome, Firefox, Safari), desktop (macOS, Windows), TV (Roku, tvOS, Android TV, Samsung), and more!
+```
+- https://reqres.in/
+- http://localhost:8080/swagger-ui.html
 
 ```cmd
-npm install -g appium
-appium --version
-   2.17.0
+pip install robotframework-requests
+robot -d tests test_api_request.robot
+
 ```
